@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>MASHRO3 — محلل المشاريع الذكي</title>
-<meta name="description" content="MASHRO3 يساعدك على تحليل مشروعك وحساب الأرباح ونقطة التعادل وسعر البيع وتقييم فكرة المشروع.">
+<meta name="description" content="MASHRO3 يساعدك على تحليل المشاريع وحساب الأرباح وتوليد أفكار مشاريع مناسبة لرأس مالك.">
 <meta name="theme-color" content="#111827">
 
-<!-- ضع هنا علامة Google Search Console الخاصة بك إذا كانت موجودة عندك -->
+<!-- ضع هنا علامة Google Search Console القديمة إذا كانت موجودة -->
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -28,9 +28,9 @@ margin:auto;
 nav{
 position:sticky;
 top:0;
-z-index:10;
-background:rgba(255,255,255,.95);
-backdrop-filter:blur(10px);
+z-index:100;
+background:rgba(255,255,255,.96);
+backdrop-filter:blur(12px);
 border-bottom:1px solid #e5e7eb;
 }
 
@@ -42,9 +42,8 @@ padding:15px 0;
 }
 
 .logo{
-font-size:24px;
+font-size:25px;
 font-weight:900;
-color:#111827;
 }
 
 .logo span{color:#2563eb}
@@ -52,11 +51,11 @@ color:#111827;
 nav a{
 text-decoration:none;
 color:#374151;
-font-weight:700;
+font-weight:800;
 }
 
 .hero{
-padding:70px 0 45px;
+padding:70px 0 50px;
 text-align:center;
 background:linear-gradient(180deg,#eef4ff,#f5f7fb);
 }
@@ -65,14 +64,14 @@ background:linear-gradient(180deg,#eef4ff,#f5f7fb);
 display:inline-block;
 background:#dbeafe;
 color:#1d4ed8;
-padding:7px 14px;
+padding:7px 15px;
 border-radius:999px;
 font-weight:800;
 margin-bottom:18px;
 }
 
 .hero h1{
-font-size:clamp(38px,7vw,70px);
+font-size:clamp(40px,8vw,72px);
 line-height:1.05;
 margin-bottom:18px;
 }
@@ -80,7 +79,7 @@ margin-bottom:18px;
 .hero h1 span{color:#2563eb}
 
 .hero p{
-max-width:700px;
+max-width:720px;
 margin:auto;
 font-size:18px;
 color:#4b5563;
@@ -116,6 +115,24 @@ color:#111827;
 border:1px solid #d1d5db;
 }
 
+.section{
+padding:55px 0;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:30px;
+}
+
+.section-title h2{
+font-size:32px;
+margin-bottom:8px;
+}
+
+.section-title p{
+color:#6b7280;
+}
+
 .stats{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -135,25 +152,6 @@ box-shadow:0 8px 25px rgba(0,0,0,.04);
 .stat strong{
 display:block;
 font-size:25px;
-margin-bottom:4px;
-}
-
-.section{
-padding:55px 0;
-}
-
-.section-title{
-text-align:center;
-margin-bottom:30px;
-}
-
-.section-title h2{
-font-size:32px;
-margin-bottom:8px;
-}
-
-.section-title p{
-color:#6b7280;
 }
 
 .card{
@@ -183,7 +181,7 @@ padding:14px;
 border:1px solid #d1d5db;
 border-radius:13px;
 font-size:16px;
-background:#fff;
+background:white;
 outline:none;
 }
 
@@ -214,10 +212,6 @@ padding:25px;
 margin-bottom:16px;
 }
 
-.result-head h3{
-font-size:25px;
-}
-
 .result-grid{
 display:grid;
 grid-template-columns:repeat(4,1fr);
@@ -234,7 +228,6 @@ padding:18px;
 .result-item small{
 color:#6b7280;
 display:block;
-margin-bottom:5px;
 }
 
 .result-item strong{
@@ -243,7 +236,7 @@ font-size:21px;
 
 .smart{
 margin-top:20px;
-background:linear-gradient(135deg,#eff6ff,#ffffff);
+background:linear-gradient(135deg,#eff6ff,#fff);
 border:1px solid #bfdbfe;
 border-radius:22px;
 padding:22px;
@@ -294,12 +287,6 @@ padding:17px;
 .smart-box span{
 font-size:24px;
 display:block;
-margin-bottom:5px;
-}
-
-.smart-box strong{
-display:block;
-margin-bottom:5px;
 }
 
 .tools{
@@ -315,6 +302,67 @@ margin-bottom:8px;
 .tool p{
 color:#6b7280;
 margin-bottom:16px;
+}
+
+.idea-box{
+margin-top:20px;
+display:none;
+}
+
+.idea-list{
+display:grid;
+gap:15px;
+margin-top:20px;
+}
+
+.idea{
+border:1px solid #e5e7eb;
+border-radius:20px;
+padding:20px;
+background:#fff;
+position:relative;
+}
+
+.idea.best{
+border:2px solid #2563eb;
+}
+
+.best-badge{
+display:inline-block;
+background:#dbeafe;
+color:#1d4ed8;
+padding:5px 10px;
+border-radius:999px;
+font-size:13px;
+font-weight:900;
+margin-bottom:10px;
+}
+
+.idea h3{
+font-size:22px;
+margin-bottom:6px;
+}
+
+.idea p{
+color:#4b5563;
+}
+
+.idea-info{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:8px;
+margin-top:15px;
+}
+
+.idea-info div{
+background:#f9fafb;
+padding:10px;
+border-radius:12px;
+font-size:14px;
+}
+
+.idea-info strong{
+display:block;
 }
 
 .dark{
@@ -376,6 +424,10 @@ grid-template-columns:1fr 1fr;
 .smart-grid{
 grid-template-columns:1fr;
 }
+
+.idea-info{
+grid-template-columns:1fr;
+}
 }
 
 @media(max-width:600px){
@@ -411,28 +463,28 @@ padding:12px 0;
 <nav>
 <div class="container nav-inner">
 <div class="logo">MASH<span>RO3</span></div>
-<a href="#analyzer">ابدأ التحليل</a>
+<a href="#ideas">أفكار المشاريع</a>
 </div>
 </nav>
 
 <header class="hero">
 <div class="container">
 
-<div class="badge">🚀 مساعدك الذكي للمشاريع</div>
+<div class="badge">🚀 MASHRO3 5.0</div>
 
 <h1>
-حلّل مشروعك<br>
-<span>قبل أن تبدأ</span>
+فكرتك تبدأ هنا<br>
+<span>ومشروعك يصبح أوضح</span>
 </h1>
 
 <p>
-MASHRO3 يساعدك على فهم أرباح مشروعك،
-نقطة التعادل، سعر البيع، وتقييم قوة الفكرة بطريقة بسيطة وسريعة.
+حلّل مشروعك، احسب أرباحك، أو اكتشف أفكار مشاريع
+مناسبة لرأس مالك — كل ذلك في مكان واحد.
 </p>
 
 <div class="buttons">
-<a class="btn btn-primary" href="#analyzer">🧠 حلّل مشروعي</a>
-<a class="btn btn-secondary" href="#tools">🛠️ الأدوات</a>
+<a class="btn btn-primary" href="#ideas">💡 اكتشف فكرة مشروع</a>
+<a class="btn btn-secondary" href="#analyzer">🧠 حلّل مشروعي</a>
 </div>
 
 </div>
@@ -453,18 +505,94 @@ MASHRO3 يساعدك على فهم أرباح مشروعك،
 
 <div class="stat">
 <strong>📱</strong>
-<span>يعمل على الجوال والآيباد</span>
+<span>مصمم للجوال والآيباد</span>
 </div>
 
 </div>
 </section>
 
+
+<!-- مولد الأفكار -->
+
+<section class="section" id="ideas">
+<div class="container">
+
+<div class="section-title">
+<h2>💡 مولّد أفكار المشاريع</h2>
+<p>أدخل معلومات بسيطة وسنقترح عليك أفكارًا مناسبة.</p>
+</div>
+
+<div class="card">
+
+<div class="form-grid">
+
+<div class="field">
+<label>كم رأس المال المتاح؟</label>
+<input id="ideaCapital" type="number" min="0" placeholder="مثال: 300">
+</div>
+
+<div class="field">
+<label>مكان المشروع</label>
+<select id="ideaPlace">
+<option value="home">من المنزل</option>
+<option value="online">أونلاين</option>
+<option value="shop">محل / موقع فعلي</option>
+<option value="any">أي مكان</option>
+</select>
+</div>
+
+<div class="field">
+<label>الوقت المتاح</label>
+<select id="ideaTime">
+<option value="low">وقت قليل</option>
+<option value="medium">وقت متوسط</option>
+<option value="high">وقت كبير</option>
+</select>
+</div>
+
+<div class="field">
+<label>المجال المفضل</label>
+<select id="ideaField">
+<option value="all">أي مجال</option>
+<option value="food">مأكولات</option>
+<option value="digital">رقمي</option>
+<option value="trade">تجارة</option>
+<option value="services">خدمات</option>
+</select>
+</div>
+
+</div>
+
+<div class="action">
+<button class="btn btn-primary" onclick="generateIdeas()">
+✨ اكتشف أفكار المشاريع
+</button>
+</div>
+
+<div class="idea-box" id="ideaBox">
+
+<div class="result-head">
+<h3>🎯 أفكار مناسبة لك</h3>
+<p id="ideaSummary"></p>
+</div>
+
+<div class="idea-list" id="ideaList"></div>
+
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- محلل المشروع -->
+
 <section class="section" id="analyzer">
 <div class="container">
 
 <div class="section-title">
-<h2>🧠 محلل فكرة المشروع</h2>
-<p>أدخل أرقام مشروعك وسنحللها لك.</p>
+<h2>🧠 محلل المشروع</h2>
+<p>هل لديك فكرة بالفعل؟ أدخل أرقامها هنا.</p>
 </div>
 
 <div class="card">
@@ -566,9 +694,7 @@ MASHRO3 يساعدك على فهم أرباح مشروعك،
 
 <div class="smart-top">
 
-<div class="score" id="score">
-0/100
-</div>
+<div class="score" id="score">0/100</div>
 
 <div>
 <h3 id="smartTitle">تحليل MASHRO3 الذكي</h3>
@@ -605,18 +731,23 @@ MASHRO3 يساعدك على فهم أرباح مشروعك،
 </div>
 </section>
 
+
+<!-- الأدوات -->
+
 <section class="section" id="tools">
 <div class="container">
 
 <div class="section-title">
 <h2>🛠️ أدوات MASHRO3</h2>
-<p>أدوات إضافية تساعدك على اتخاذ القرار.</p>
+<p>أدوات إضافية لاتخاذ قرارات أفضل.</p>
 </div>
 
 <div class="tools">
 
 <div class="card tool">
+
 <h3>🎯 حاسبة هدف الربح</h3>
+
 <p>كم وحدة تحتاج أن تبيع للوصول إلى ربح معين؟</p>
 
 <div class="field">
@@ -631,14 +762,25 @@ MASHRO3 يساعدك على فهم أرباح مشروعك،
 </button>
 
 <p id="targetResult"></p>
+
 </div>
 
+
 <div class="card tool">
+
 <h3>🏷️ حاسبة سعر البيع</h3>
+
 <p>احسب سعر البيع بناءً على التكلفة ونسبة الزيادة.</p>
 
 <div class="field">
-<label>نسبة الزيادة على التكلفة %</label>
+<label>تكلفة الوحدة</label>
+<input id="priceCost" type="number" placeholder="5">
+</div>
+
+<br>
+
+<div class="field">
+<label>نسبة الزيادة %</label>
 <input id="markup" type="number" placeholder="30">
 </div>
 
@@ -649,43 +791,46 @@ MASHRO3 يساعدك على فهم أرباح مشروعك،
 </button>
 
 <p id="priceResult"></p>
+
 </div>
 
 </div>
 </div>
 </section>
+
 
 <section class="section dark">
 <div class="container">
 
 <div class="section-title">
 <h2>لماذا MASHRO3؟</h2>
-<p>نحن لا نعطيك رقمًا فقط، بل نساعدك على فهمه.</p>
+<p>من الفكرة إلى الأرقام، في مكان واحد.</p>
 </div>
 
 <div class="features">
 
 <div class="feature">
+<span>💡</span>
+<h3>أفكار</h3>
+<p>اكتشف أفكارًا مناسبة للميزانية والظروف التي تدخلها.</p>
+</div>
+
+<div class="feature">
 <span>🧠</span>
-<h3>تحليل ذكي</h3>
-<p>تقييم مبسط لقوة المشروع بناءً على الأرقام التي تدخلها.</p>
+<h3>تحليل</h3>
+<p>افهم قوة مشروعك وأهم نقاط الخطر.</p>
 </div>
 
 <div class="feature">
 <span>📊</span>
-<h3>أرقام واضحة</h3>
-<p>الإيرادات والربح وهامش الربح ونقطة التعادل في مكان واحد.</p>
-</div>
-
-<div class="feature">
-<span>⚡</span>
-<h3>بدون تعقيد</h3>
-<p>لا تحتاج إلى خبرة محاسبية لاستخدام الأدوات.</p>
+<h3>أرقام</h3>
+<p>احسب الإيرادات والربح ونقطة التعادل وسعر البيع.</p>
 </div>
 
 </div>
 </div>
 </section>
+
 
 <section class="section">
 <div class="container">
@@ -698,35 +843,37 @@ MASHRO3 يساعدك على فهم أرباح مشروعك،
 
 <details>
 <summary>هل MASHRO3 مجاني؟</summary>
-<p>نعم، الأدوات الموجودة حاليًا مجانية.</p>
+<p>نعم، الأدوات الحالية مجانية.</p>
 </details>
 
 <details>
-<summary>هل النتائج مضمونة؟</summary>
-<p>لا. النتائج تقديرية وتعتمد على الأرقام التي يدخلها المستخدم.</p>
+<summary>هل أفكار المشاريع مضمونة الربح؟</summary>
+<p>لا. الأفكار والنتائج تقديرية، والنجاح يعتمد على السوق والتنفيذ والتكاليف الفعلية.</p>
 </details>
 
 <details>
-<summary>هل يمكن استخدام الموقع من الهاتف؟</summary>
-<p>نعم، الموقع مصمم ليعمل على الهاتف والآيباد والكمبيوتر.</p>
+<summary>هل أحتاج إلى كمبيوتر؟</summary>
+<p>لاستخدام الموقع كزائر لا تحتاج إلى كمبيوتر، ويمكن استخدامه من الهاتف أو الآيباد.</p>
 </details>
 
 <details>
 <summary>هل MASHRO3 يقدم استشارة مالية؟</summary>
-<p>لا. MASHRO3 أداة تحليل وتقدير وليست استشارة مالية أو استثمارية.</p>
+<p>لا. MASHRO3 أداة تقدير وتحليل وليست استشارة مالية أو استثمارية.</p>
 </details>
 
 </div>
 </div>
 </section>
 
+
 <footer>
 <div class="container">
 <strong>MASHRO3</strong>
 <p>محلل المشاريع الذكي</p>
-<p>© 2026 MASHRO3 — جميع الحقوق محفوظة</p>
+<p>© 2026 MASHRO3</p>
 </div>
 </footer>
+
 
 <script>
 
@@ -734,12 +881,268 @@ function money(value,currency){
 return Number(value).toLocaleString("ar") + " " + currency;
 }
 
+
+/* مولد أفكار المشاريع */
+
+function generateIdeas(){
+
+const capital=Number(document.getElementById("ideaCapital").value);
+const place=document.getElementById("ideaPlace").value;
+const time=document.getElementById("ideaTime").value;
+const field=document.getElementById("ideaField").value;
+
+if(capital<=0){
+alert("أدخل رأس المال أولًا.");
+return;
+}
+
+let ideas=[];
+
+
+/* أفكار رقمية */
+
+if(field==="all" || field==="digital"){
+
+ideas.push({
+name:"تصميم منتجات رقمية",
+cost:"منخفض",
+risk:"منخفض",
+score:92,
+profit:"مرتفع نسبيًا",
+desc:"إنشاء ملفات أو قوالب أو أدوات رقمية وبيعها عبر الإنترنت.",
+place:"online"
+});
+
+ideas.push({
+name:"خدمة تصميم محتوى للشركات الصغيرة",
+cost:"منخفض",
+risk:"متوسط",
+score:86,
+profit:"متوسط إلى مرتفع",
+desc:"تصميم منشورات ومحتوى بسيط لأصحاب المشاريع.",
+place:"online"
+});
+
+}
+
+
+/* التجارة */
+
+if(field==="all" || field==="trade"){
+
+ideas.push({
+name:"متجر إلكتروني متخصص",
+cost:"متوسط",
+risk:"متوسط",
+score:84,
+profit:"متوسط إلى مرتفع",
+desc:"بيع نوع محدد من المنتجات بدل متجر عام.",
+place:"online"
+});
+
+ideas.push({
+name:"إعادة بيع منتجات مطلوبة",
+cost:"متوسط",
+risk:"متوسط",
+score:80,
+profit:"متوسط",
+desc:"شراء منتجات مطلوبة وإعادة بيعها بهامش ربح مناسب.",
+place:"any"
+});
+
+}
+
+
+/* الخدمات */
+
+if(field==="all" || field==="services"){
+
+ideas.push({
+name:"خدمة إدارة حسابات التواصل",
+cost:"منخفض",
+risk:"منخفض",
+score:88,
+profit:"متوسط",
+desc:"مساعدة المشاريع الصغيرة في إدارة المحتوى والنشر.",
+place:"online"
+});
+
+ideas.push({
+name:"خدمة تصميم مواقع بسيطة",
+cost:"منخفض",
+risk:"متوسط",
+score:87,
+profit:"متوسط إلى مرتفع",
+desc:"إنشاء صفحات ومواقع بسيطة لأصحاب المشاريع.",
+place:"online"
+});
+
+}
+
+
+/* المأكولات */
+
+if(field==="all" || field==="food"){
+
+ideas.push({
+name:"مشروع مأكولات منزلية",
+cost:"متوسط",
+risk:"متوسط",
+score:79,
+profit:"متوسط",
+desc:"بيع منتجات مأكولات محددة حسب الطلب والسوق المحلي.",
+place:"home"
+});
+
+ideas.push({
+name:"حلويات منزلية متخصصة",
+cost:"متوسط",
+risk:"متوسط",
+score:77,
+profit:"متوسط",
+desc:"التركيز على نوع واحد مميز من الحلويات وبناء علامة حوله.",
+place:"home"
+});
+
+}
+
+
+/* فلترة حسب المكان */
+
+if(place!=="any"){
+
+ideas=ideas.filter(function(idea){
+
+if(place==="home"){
+return idea.place==="home" || idea.place==="online";
+}
+
+if(place==="online"){
+return idea.place==="online";
+}
+
+if(place==="shop"){
+return idea.place==="any";
+}
+
+return true;
+
+});
+
+}
+
+
+/* تعديل التقييم حسب الوقت */
+
+ideas=ideas.map(function(idea){
+
+let score=idea.score;
+
+if(time==="low" && idea.place==="online"){
+score+=4;
+}
+
+if(time==="low" && idea.place==="home"){
+score-=5;
+}
+
+if(time==="high"){
+score+=2;
+}
+
+if(capital<100 && idea.cost==="مرتفع"){
+score-=20;
+}
+
+return {
+...idea,
+score:Math.min(99,score)
+};
+
+});
+
+
+ideas.sort(function(a,b){
+return b.score-a.score;
+});
+
+ideas=ideas.slice(0,3);
+
+if(ideas.length===0){
+
+ideas=[
+{
+name:"مشروع رقمي صغير",
+cost:"منخفض",
+risk:"منخفض",
+score:85,
+profit:"متوسط",
+desc:"ابدأ بخدمة أو منتج رقمي بسيط واختبر الطلب قبل التوسع.",
+place:"online"
+}
+];
+
+}
+
+document.getElementById("ideaBox").style.display="block";
+
+document.getElementById("ideaSummary").textContent=
+"بناءً على رأس مال " + capital.toLocaleString("ar") +
+"، هذه أبرز الخيارات المقترحة لك.";
+
+const list=document.getElementById("ideaList");
+
+list.innerHTML="";
+
+ideas.forEach(function(idea,index){
+
+const div=document.createElement("div");
+
+div.className="idea" + (index===0 ? " best" : "");
+
+div.innerHTML=
+
+(index===0 ? '<div class="best-badge">🏆 أفضل اختيار حاليًا</div>' : '') +
+
+"<h3>" + idea.name + "</h3>" +
+
+"<p>" + idea.desc + "</p>" +
+
+'<div class="idea-info">' +
+
+"<div><strong>⭐ " + idea.score + "/100</strong>التقييم</div>" +
+
+"<div><strong>💰 " + idea.cost + "</strong>تكلفة البداية</div>" +
+
+"<div><strong>⚠️ " + idea.risk + "</strong>المخاطرة</div>" +
+
+"</div>" +
+
+'<div class="idea-info">' +
+
+"<div><strong>📈 " + idea.profit + "</strong>فرصة الربح</div>" +
+
+"<div><strong>📍 " +
+(idea.place==="online" ? "أونلاين" :
+idea.place==="home" ? "من المنزل" : "مرن") +
+"</strong>طريقة التشغيل</div>" +
+
+"</div>";
+
+list.appendChild(div);
+
+});
+
+}
+
+
+/* تحليل المشروع */
+
 function analyzeProject(){
 
 const name=document.getElementById("projectName").value.trim() || "مشروعك";
 const currency=document.getElementById("currency").value;
 
-const capital=Number(document.getElementById("capital").value);
 const cost=Number(document.getElementById("cost").value);
 const price=Number(document.getElementById("price").value);
 const sales=Number(document.getElementById("sales").value);
@@ -756,7 +1159,7 @@ return;
 }
 
 if(sales<=0){
-alert("أدخل عدد المبيعات المتوقع.");
+alert("أدخل المبيعات المتوقعة.");
 return;
 }
 
@@ -786,45 +1189,33 @@ if(score>=90){
 
 title="مشروع قوي جدًا 🔥";
 subtitle="الأرقام الحالية تعطي مؤشرات ممتازة.";
-
-tip="حافظ على هامش الربح وركز على زيادة المبيعات تدريجيًا.";
-
-risk="راقب المصاريف وتكلفة الوحدة حتى لا ينخفض الربح.";
-
-action="اختبر المشروع على نطاق صغير ثم توسع تدريجيًا.";
+tip="حافظ على هامش الربح وركز على زيادة المبيعات.";
+risk="راقب التكاليف والمصاريف باستمرار.";
+action="اختبر المشروع على نطاق صغير ثم توسع.";
 
 }else if(score>=75){
 
 title="مشروع جيد 👍";
-subtitle="المشروع لديه فرصة جيدة مع وجود نقاط يمكن تحسينها.";
-
+subtitle="المشروع لديه فرصة جيدة مع نقاط يمكن تحسينها.";
 tip="حاول رفع المبيعات أو تقليل تكلفة الوحدة.";
-
-risk="انخفاض المبيعات قد يؤثر على الربح.";
-
+risk="انخفاض المبيعات قد يقلل الربح.";
 action="اختبر السوق قبل استثمار مبلغ كبير.";
 
 }else if(score>=60){
 
 title="يحتاج بعض التعديل ⚙️";
-subtitle="هناك فرصة، لكن الأرقام الحالية تحتاج تحسينًا.";
-
-tip="راجع سعر البيع والتكاليف قبل البدء.";
-
+subtitle="هناك فرصة، لكن الأرقام تحتاج تحسينًا.";
+tip="راجع سعر البيع والتكاليف.";
 risk="هامش الربح قد يكون ضعيفًا.";
-
-action="حاول تحسين السعر أو التكلفة ثم أعد التحليل.";
+action="حسّن السعر أو التكلفة ثم أعد التحليل.";
 
 }else{
 
 title="يحتاج إعادة نظر ⚠️";
 subtitle="الأرقام الحالية تشير إلى مخاطرة مرتفعة.";
-
-tip="لا تتسرع في الاستثمار قبل تحسين نموذج المشروع.";
-
-risk="قد لا تغطي المبيعات التكاليف الحالية.";
-
-action="غيّر التكلفة أو السعر أو استراتيجية المبيعات.";
+tip="لا تتسرع في الاستثمار.";
+risk="قد لا تغطي المبيعات التكاليف.";
+action="أعد بناء نموذج المشروع قبل البدء.";
 }
 
 document.getElementById("result").style.display="block";
@@ -842,13 +1233,13 @@ document.getElementById("profit").textContent=
 money(profit,currency);
 
 document.getElementById("margin").textContent=
-margin.toFixed(1) + "%";
+margin.toFixed(1)+"%";
 
 document.getElementById("breakEven").textContent=
-Math.ceil(breakEven).toLocaleString("ar") + " وحدة";
+Math.ceil(breakEven).toLocaleString("ar")+" وحدة";
 
 document.getElementById("score").textContent=
-score + "/100";
+score+"/100";
 
 document.getElementById("smartTitle").textContent=title;
 document.getElementById("smartSubtitle").textContent=subtitle;
@@ -857,6 +1248,9 @@ document.getElementById("smartRisk").textContent=risk;
 document.getElementById("smartAction").textContent=action;
 
 }
+
+
+/* هدف الربح */
 
 function calculateTarget(){
 
@@ -881,21 +1275,25 @@ return;
 const units=(fixed+target)/(price-cost);
 
 document.getElementById("targetResult").innerHTML=
-"<strong>النتيجة:</strong> تحتاج تقريبًا إلى بيع " +
-Math.ceil(units).toLocaleString("ar") +
-" وحدة للوصول إلى ربح " +
-money(target,currency) + ".";
+"<strong>النتيجة:</strong> تحتاج تقريبًا إلى بيع "+
+Math.ceil(units).toLocaleString("ar")+
+" وحدة للوصول إلى ربح "+
+money(target,currency)+".";
+
 }
+
+
+/* سعر البيع */
 
 function calculatePrice(){
 
-const cost=Number(document.getElementById("cost").value);
+const cost=Number(document.getElementById("priceCost").value);
 const markup=Number(document.getElementById("markup").value);
 const currency=document.getElementById("currency").value;
 
 if(cost<=0){
 document.getElementById("priceResult").textContent=
-"أدخل تكلفة الوحدة أولًا.";
+"أدخل تكلفة الوحدة.";
 return;
 }
 
@@ -908,8 +1306,9 @@ return;
 const price=cost*(1+markup/100);
 
 document.getElementById("priceResult").innerHTML=
-"<strong>سعر البيع المقترح:</strong> " +
+"<strong>سعر البيع المقترح:</strong> "+
 money(price,currency);
+
 }
 
 </script>
