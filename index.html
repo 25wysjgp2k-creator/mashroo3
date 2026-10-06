@@ -7,541 +7,323 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0f172a">
-<meta name="description" content="MASHRO3 — محلل المشاريع الذكي، مولد أفكار المشاريع وحاسبات الأرباح.">
-<title>MASHRO3 — محلل المشاريع الذكي</title>
+<meta name="description" content="MASHRO3 - أدوات ذكية للمشاريع والمال والشراء والادخار والحسابات اليومية.">
+<title>MASHRO3 — أدوات ذكية للمال والمشاريع</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
-  font-family:Arial,Tahoma,sans-serif;
-  background:#f5f7fb;
-  color:#172033;
-  line-height:1.7;
+font-family:Arial,Tahoma,sans-serif;
+background:#f5f7fb;
+color:#172033;
+line-height:1.7;
 }
-
 nav{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(15,23,42,.96);
-  backdrop-filter:blur(10px);
-  padding:14px 5%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
+position:sticky;
+top:0;
+z-index:1000;
+background:rgba(15,23,42,.97);
+padding:13px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:15px;
+box-shadow:0 5px 20px rgba(0,0,0,.12);
 }
-
-.logo{
-  color:white;
-  font-size:24px;
-  font-weight:900;
-  letter-spacing:1px;
-}
-
-nav a{
-  color:#dbeafe;
-  text-decoration:none;
-  margin:0 7px;
-  font-size:14px;
-}
-
-nav a:hover{
-  color:#60a5fa;
-}
+.logo{color:white;font-size:25px;font-weight:900}
+nav a{color:#dbeafe;text-decoration:none;margin:0 6px;font-size:13px}
+nav a:hover{color:#60a5fa}
 
 .hero{
-  padding:80px 6% 70px;
-  text-align:center;
-  color:white;
-  background:
-    radial-gradient(circle at top right,#2563eb 0,#1e3a8a 35%,#0f172a 75%);
+padding:70px 6%;
+text-align:center;
+color:white;
+background:radial-gradient(circle at top right,#2563eb,#1e3a8a 40%,#0f172a 80%);
 }
-
 .badge{
-  display:inline-block;
-  background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.2);
-  padding:7px 14px;
-  border-radius:30px;
-  margin-bottom:18px;
-  font-size:13px;
+display:inline-block;
+background:rgba(255,255,255,.12);
+border:1px solid rgba(255,255,255,.2);
+padding:7px 14px;
+border-radius:30px;
+font-size:13px;
+margin-bottom:15px;
 }
-
-.hero h1{
-  font-size:clamp(40px,8vw,76px);
-  margin-bottom:8px;
-  font-weight:900;
-}
-
-.hero h2{
-  font-size:clamp(20px,4vw,32px);
-  margin-bottom:15px;
-}
-
-.hero p{
-  max-width:720px;
-  margin:auto;
-  color:#dbeafe;
-}
-
+.hero h1{font-size:clamp(44px,9vw,78px);font-weight:900}
+.hero h2{font-size:clamp(21px,4vw,32px);margin:5px 0 12px}
+.hero p{max-width:720px;margin:auto;color:#dbeafe}
 .hero-btn{
-  display:inline-block;
-  margin-top:28px;
-  background:white;
-  color:#1d4ed8;
-  text-decoration:none;
-  padding:13px 25px;
-  border-radius:14px;
-  font-weight:900;
+display:inline-block;
+margin-top:25px;
+background:white;
+color:#1d4ed8;
+padding:13px 25px;
+border-radius:14px;
+text-decoration:none;
+font-weight:900;
 }
 
 .stats{
-  max-width:1050px;
-  margin:-35px auto 35px;
-  padding:0 20px;
-  position:relative;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
+max-width:1050px;
+margin:-35px auto 25px;
+padding:0 20px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+position:relative;
 }
-
 .stat{
-  background:white;
-  padding:20px;
-  border-radius:18px;
-  text-align:center;
-  box-shadow:0 12px 35px rgba(15,23,42,.09);
+background:white;
+padding:17px;
+border-radius:17px;
+text-align:center;
+box-shadow:0 12px 30px rgba(15,23,42,.08);
 }
+.stat strong{display:block;color:#2563eb;font-size:23px}
 
-.stat strong{
-  display:block;
-  font-size:24px;
-  color:#2563eb;
-}
-
-.container{
-  width:min(1100px,92%);
-  margin:auto;
-}
-
-.section{
-  padding:55px 0;
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:28px;
-}
-
-.section-title h2{
-  font-size:30px;
-  margin-bottom:5px;
-}
-
-.section-title p{
-  color:#64748b;
-}
+.container{width:min(1100px,92%);margin:auto}
+.section{padding:45px 0}
+.section-title{text-align:center;margin-bottom:25px}
+.section-title h2{font-size:29px}
+.section-title p{color:#64748b}
 
 .card{
-  background:white;
-  border-radius:22px;
-  padding:25px;
-  margin-bottom:25px;
-  box-shadow:0 12px 35px rgba(15,23,42,.07);
-  border:1px solid #e8edf5;
+background:white;
+border-radius:21px;
+padding:24px;
+margin-bottom:20px;
+box-shadow:0 10px 30px rgba(15,23,42,.06);
+border:1px solid #e6ebf2;
 }
+.card h3{font-size:22px;margin-bottom:5px}
+.card-sub{color:#64748b;margin-bottom:18px}
 
-.card h3{
-  margin-bottom:8px;
-  font-size:23px;
-}
-
-.card-sub{
-  color:#64748b;
-  margin-bottom:20px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
-}
-
-.field{
-  display:flex;
-  flex-direction:column;
-  gap:7px;
-}
-
-.field label{
-  font-weight:700;
-}
-
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-weight:700}
 input,select{
-  width:100%;
-  padding:13px;
-  border:1px solid #dbe2ea;
-  border-radius:12px;
-  font-size:15px;
-  background:#fff;
-  outline:none;
+width:100%;
+padding:13px;
+border:1px solid #d8e0ea;
+border-radius:12px;
+font-size:15px;
+background:white;
+outline:none;
 }
-
 input:focus,select:focus{
-  border-color:#2563eb;
-  box-shadow:0 0 0 3px rgba(37,99,235,.1);
+border-color:#2563eb;
+box-shadow:0 0 0 3px rgba(37,99,235,.1);
 }
 
 .btn{
-  width:100%;
-  border:0;
-  background:#2563eb;
-  color:white;
-  padding:14px 18px;
-  border-radius:13px;
-  font-size:16px;
-  font-weight:900;
-  cursor:pointer;
-  margin-top:18px;
+width:100%;
+border:0;
+background:#2563eb;
+color:white;
+padding:14px;
+border-radius:13px;
+font-size:16px;
+font-weight:900;
+cursor:pointer;
+margin-top:17px;
 }
-
-.btn:hover{
-  background:#1d4ed8;
-}
-
-.btn.dark{
-  background:#0f172a;
-}
-
-.btn.green{
-  background:#059669;
-}
+.btn:hover{background:#1d4ed8}
+.green{background:#059669}
+.dark{background:#0f172a}
+.orange{background:#ea580c}
 
 .result{
-  display:none;
-  margin-top:25px;
-  background:#f8fafc;
-  border:1px solid #e2e8f0;
-  border-radius:18px;
-  padding:20px;
+display:none;
+margin-top:20px;
+padding:19px;
+background:#f8fafc;
+border:1px solid #e2e8f0;
+border-radius:17px;
 }
-
-.result.show{
-  display:block;
-}
-
-.result-head{
-  padding-bottom:15px;
-  margin-bottom:18px;
-  border-bottom:1px solid #e2e8f0;
-}
-
-.result-head h3{
-  color:#0f172a;
-  margin-bottom:3px;
-}
-
-.result-head p{
-  color:#64748b;
-}
+.result.show{display:block}
 
 .result-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px;
+margin-top:15px;
 }
-
 .result-box{
-  background:white;
-  padding:17px;
-  border-radius:15px;
-  text-align:center;
-  border:1px solid #e5e7eb;
+background:white;
+padding:15px;
+border-radius:14px;
+text-align:center;
+border:1px solid #e5e7eb;
 }
-
-.result-box span{
-  display:block;
-  color:#64748b;
-  font-size:13px;
-}
-
-.result-box strong{
-  display:block;
-  font-size:21px;
-  margin-top:5px;
-}
-
-.good{
-  color:#059669;
-}
-
-.bad{
-  color:#dc2626;
-}
-
-.blue{
-  color:#2563eb;
-}
-
-.advice{
-  margin-top:15px;
-  padding:17px;
-  border-radius:14px;
-  background:#eff6ff;
-  border-right:5px solid #2563eb;
-}
-
-.risk{
-  margin-top:12px;
-  padding:17px;
-  border-radius:14px;
-  background:#fff7ed;
-  border-right:5px solid #f97316;
-}
-
-.idea-list{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-  margin-top:20px;
-}
-
-.idea{
-  background:#f8fafc;
-  border:1px solid #e2e8f0;
-  border-radius:17px;
-  padding:18px;
-}
-
-.idea h4{
-  font-size:18px;
-  margin-bottom:8px;
-}
-
-.idea p{
-  color:#64748b;
-  font-size:14px;
-}
-
-.idea-tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:7px;
-  margin-top:12px;
-}
-
-.tag{
-  background:#e0e7ff;
-  color:#3730a3;
-  padding:4px 8px;
-  border-radius:20px;
-  font-size:12px;
-}
+.result-box span{display:block;color:#64748b;font-size:13px}
+.result-box strong{font-size:20px}
+.good{color:#059669}
+.bad{color:#dc2626}
+.blue{color:#2563eb}
 
 .best{
-  background:linear-gradient(135deg,#eff6ff,#eefdf7);
-  border:2px solid #60a5fa;
-  padding:20px;
-  border-radius:18px;
-  margin-top:20px;
+margin-top:18px;
+padding:18px;
+border-radius:17px;
+background:linear-gradient(135deg,#eff6ff,#ecfdf5);
+border:2px solid #60a5fa;
 }
-
-.compare-result{
-  display:none;
-  margin-top:20px;
+.idea-list{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:13px;
+margin-top:15px;
 }
-
-.compare-result.show{
-  display:block;
+.idea{
+background:#f8fafc;
+border:1px solid #e2e8f0;
+padding:17px;
+border-radius:16px;
 }
-
-.compare-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
-}
-
-.project-score{
-  background:#f8fafc;
-  border-radius:18px;
-  padding:20px;
-  text-align:center;
-  border:1px solid #e2e8f0;
-}
-
-.score{
-  font-size:45px;
-  font-weight:900;
-  color:#2563eb;
-}
-
-.winner{
-  margin-top:15px;
-  padding:20px;
-  text-align:center;
-  border-radius:17px;
-  background:#ecfdf5;
-  border:1px solid #a7f3d0;
-  font-weight:900;
-  font-size:20px;
+.idea h4{font-size:18px}
+.idea p{color:#64748b;font-size:14px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tag{
+background:#e0e7ff;
+color:#3730a3;
+padding:3px 8px;
+border-radius:20px;
+font-size:11px;
 }
 
 .dashboard{
-  margin-top:25px;
-  display:none;
+display:none;
+margin-top:20px;
 }
-
-.dashboard.show{
-  display:block;
-}
-
-.dashboard-title{
-  text-align:center;
-  margin-bottom:18px;
-}
-
+.dashboard.show{display:block}
 .dashboard-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:13px;
 }
-
-.dash-card{
-  background:white;
-  border:1px solid #e2e8f0;
-  border-radius:18px;
-  padding:20px;
+.dash{
+background:white;
+border:1px solid #e2e8f0;
+border-radius:16px;
+padding:18px;
 }
-
-.dash-card h4{
-  margin-bottom:12px;
+.big-score{
+font-size:48px;
+font-weight:900;
+text-align:center;
+color:#2563eb;
 }
-
 .progress{
-  height:11px;
-  background:#e5e7eb;
-  border-radius:20px;
-  overflow:hidden;
+height:10px;
+background:#e5e7eb;
+border-radius:20px;
+overflow:hidden;
+margin:10px 0;
 }
-
 .progress-bar{
-  height:100%;
-  width:0%;
-  background:#2563eb;
-  transition:width .8s ease;
+height:100%;
+width:0%;
+background:#2563eb;
+transition:width .7s;
 }
 
-.score-big{
-  font-size:52px;
-  font-weight:900;
-  text-align:center;
-  color:#2563eb;
+.compare-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+}
+.project{
+background:#f8fafc;
+border:1px solid #e2e8f0;
+border-radius:17px;
+padding:19px;
+}
+.score{
+font-size:45px;
+font-weight:900;
+color:#2563eb;
+text-align:center;
+}
+.winner{
+margin-top:15px;
+background:#ecfdf5;
+border:1px solid #a7f3d0;
+padding:17px;
+border-radius:15px;
+text-align:center;
+font-weight:900;
 }
 
-.level{
-  text-align:center;
-  font-weight:900;
-  margin-top:-8px;
+.tools-nav{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px;
+margin-bottom:20px;
 }
+.tool-link{
+background:white;
+border:1px solid #e2e8f0;
+padding:14px 8px;
+border-radius:14px;
+text-align:center;
+cursor:pointer;
+font-weight:800;
+}
+.tool-link:hover{border-color:#2563eb;color:#2563eb}
 
 .features{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px;
 }
-
 .feature{
-  background:#0f172a;
-  color:white;
-  padding:24px;
-  border-radius:19px;
+background:#0f172a;
+color:white;
+padding:22px;
+border-radius:18px;
 }
+.feature p{color:#cbd5e1;margin-top:6px}
 
-.feature p{
-  color:#cbd5e1;
-  margin-top:7px;
+.tip{
+background:#eff6ff;
+border-right:5px solid #2563eb;
+padding:16px;
+border-radius:12px;
+margin-top:15px;
 }
 
 .faq{
-  border-bottom:1px solid #e2e8f0;
-  padding:16px 0;
+padding:15px 0;
+border-bottom:1px solid #e2e8f0;
 }
-
-.faq strong{
-  display:block;
-  margin-bottom:5px;
-}
-
-.faq p{
-  color:#64748b;
-}
+.faq strong{display:block}
+.faq p{color:#64748b}
 
 footer{
-  margin-top:40px;
-  background:#0f172a;
-  color:#cbd5e1;
-  text-align:center;
-  padding:35px 20px;
+background:#0f172a;
+color:#cbd5e1;
+text-align:center;
+padding:35px 20px;
+margin-top:30px;
 }
-
-footer strong{
-  color:white;
-}
-
-footer small{
-  display:block;
-  margin-top:8px;
-  color:#94a3b8;
-}
+footer strong{color:white;font-size:20px}
+footer small{display:block;color:#94a3b8;margin-top:7px}
 
 @media(max-width:800px){
-  .stats,
-  .result-grid,
-  .idea-list,
-  .features{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .grid,
-  .compare-grid,
-  .dashboard-grid{
-    grid-template-columns:1fr;
-  }
+.stats{grid-template-columns:repeat(2,1fr)}
+.result-grid{grid-template-columns:repeat(2,1fr)}
+.idea-list,.features{grid-template-columns:repeat(2,1fr)}
+.tools-nav{grid-template-columns:repeat(2,1fr)}
 }
 
 @media(max-width:550px){
-  nav{
-    flex-direction:column;
-  }
-
-  nav a{
-    font-size:12px;
-  }
-
-  .stats,
-  .result-grid,
-  .idea-list,
-  .features{
-    grid-template-columns:1fr;
-  }
-
-  .hero{
-    padding-top:55px;
-  }
-
-  .card{
-    padding:18px;
-  }
+nav{flex-direction:column}
+nav a{font-size:11px}
+.grid,.compare-grid,.dashboard-grid{grid-template-columns:1fr}
+.stats,.result-grid,.idea-list,.features{grid-template-columns:1fr}
+.hero{padding-top:50px}
+.card{padding:18px}
 }
 </style>
 </head>
@@ -549,687 +331,1027 @@ footer small{
 <body>
 
 <nav>
-  <div class="logo">MASHRO3</div>
-  <div>
-    <a href="#ideas">الأفكار</a>
-    <a href="#analyzer">التحليل</a>
-    <a href="#compare">المقارنة</a>
-    <a href="#tools">الحاسبات</a>
-  </div>
+<div class="logo">MASHRO3</div>
+<div>
+<a href="#daily">الأدوات</a>
+<a href="#ideas">الأفكار</a>
+<a href="#projects">المشاريع</a>
+<a href="#faq">الأسئلة</a>
+</div>
 </nav>
 
 <header class="hero">
-  <div class="badge">🚀 منصة ذكية لأصحاب الأفكار</div>
-  <h1>MASHRO3</h1>
-  <h2>خلِّ فكرتك أوضح قبل أن تبدأ</h2>
-  <p>
-    مولّد أفكار + محلل مشاريع + مقارنة مشاريع + حاسبات مالية
-    في مكان واحد وبطريقة سهلة وسريعة.
-  </p>
-  <a class="hero-btn" href="#ideas">ابدأ الآن ↓</a>
+<div class="badge">🚀 منصة ذكية للاستخدام اليومي</div>
+<h1>MASHRO3</h1>
+<h2>أدوات تساعدك تفهم فلوسك وقراراتك بشكل أبسط</h2>
+<p>
+حاسبات مالية، أدوات شراء وادخار، أفكار مشاريع وتحليل ذكي —
+كلها في مكان واحد وبطريقة سهلة.
+</p>
+<a class="hero-btn" href="#daily">اكتشف الأدوات ↓</a>
 </header>
 
 <div class="stats">
-  <div class="stat">
-    <strong>100%</strong>
-    مجاني
-  </div>
-  <div class="stat">
-    <strong>⚡ سريع</strong>
-    نتائج مباشرة
-  </div>
-  <div class="stat">
-    <strong>📱</strong>
-    يعمل على الجوال والآيباد
-  </div>
+<div class="stat"><strong>💰</strong>مال وميزانية</div>
+<div class="stat"><strong>🛒</strong>شراء أذكى</div>
+<div class="stat"><strong>💡</strong>أفكار مشاريع</div>
+<div class="stat"><strong>📊</strong>تحليل ومقارنة</div>
 </div>
+
 
 <main class="container">
 
+
+<!-- الأدوات اليومية -->
+
+<section class="section" id="daily">
+
+<div class="section-title">
+<h2>🧰 أدوات مفيدة للجميع</h2>
+<p>اختر الأداة التي تحتاجها الآن.</p>
+</div>
+
+<div class="tools-nav">
+<div class="tool-link" onclick="scrollToTool('budget')">💰 الميزانية</div>
+<div class="tool-link" onclick="scrollToTool('saving')">🎯 الادخار</div>
+<div class="tool-link" onclick="scrollToTool('discount')">🏷️ الخصم</div>
+<div class="tool-link" onclick="scrollToTool('comparePrice')">🛒 مقارنة الأسعار</div>
+</div>
+
+
+<!-- الميزانية -->
+
+<div class="card" id="budget">
+
+<h3>💰 حاسبة الميزانية الشهرية</h3>
+<p class="card-sub">
+أدخل دخلك ومصاريفك لمعرفة المبلغ المتبقي لديك.
+</p>
+
+<div class="grid">
+
+<div class="field">
+<label>الدخل الشهري</label>
+<input id="income" type="number" placeholder="مثال: 500">
+</div>
+
+<div class="field">
+<label>السكن</label>
+<input id="housing" type="number" placeholder="0">
+</div>
+
+<div class="field">
+<label>الطعام</label>
+<input id="food" type="number" placeholder="0">
+</div>
+
+<div class="field">
+<label>المواصلات</label>
+<input id="transport" type="number" placeholder="0">
+</div>
+
+<div class="field">
+<label>التسوق والترفيه</label>
+<input id="shopping" type="number" placeholder="0">
+</div>
+
+<div class="field">
+<label>مصاريف أخرى</label>
+<input id="other" type="number" placeholder="0">
+</div>
+
+</div>
+
+<button class="btn" onclick="calculateBudget()">📊 حلّل ميزانيتي</button>
+
+<div id="budgetResult" class="result"></div>
+
+</div>
+
+
+<!-- الادخار -->
+
+<div class="card" id="saving">
+
+<h3>🎯 حاسبة الادخار</h3>
+<p class="card-sub">
+اعرف كم تحتاج من الوقت للوصول إلى هدفك المالي.
+</p>
+
+<div class="grid">
+
+<div class="field">
+<label>المبلغ الذي تملكه الآن</label>
+<input id="savedNow" type="number" placeholder="100">
+</div>
+
+<div class="field">
+<label>هدفك المالي</label>
+<input id="savingGoal" type="number" placeholder="1000">
+</div>
+
+<div class="field">
+<label>المبلغ الذي تستطيع ادخاره شهريًا</label>
+<input id="monthlySaving" type="number" placeholder="100">
+</div>
+
+</div>
+
+<button class="btn green" onclick="calculateSaving()">🎯 احسب مدة الوصول</button>
+
+<div id="savingResult" class="result"></div>
+
+</div>
+
+
+<!-- الخصم -->
+
+<div class="card" id="discount">
+
+<h3>🏷️ حاسبة الخصم</h3>
+<p class="card-sub">
+اعرف السعر النهائي والمبلغ الذي وفرته.
+</p>
+
+<div class="grid">
+
+<div class="field">
+<label>السعر الأصلي</label>
+<input id="originalPrice" type="number" placeholder="50">
+</div>
+
+<div class="field">
+<label>نسبة الخصم %</label>
+<input id="discountPercent" type="number" placeholder="20">
+</div>
+
+</div>
+
+<button class="btn orange" onclick="calculateDiscount()">🏷️ احسب السعر</button>
+
+<div id="discountResult" class="result"></div>
+
+</div>
+
+
+<!-- مقارنة الأسعار -->
+
+<div class="card" id="comparePrice">
+
+<h3>🛒 مقارنة السعر مقابل الكمية</h3>
+<p class="card-sub">
+مفيدة عندما يكون أمامك منتجان بأحجام مختلفة. الأرخص لكل وحدة هو الأفضل من ناحية السعر فقط.
+</p>
+
+<div class="compare-grid">
+
+<div class="project">
+
+<h3>المنتج الأول</h3>
+
+<div class="field" style="margin-top:12px">
+<label>السعر</label>
+<input id="item1Price" type="number" placeholder="2">
+</div>
+
+<div class="field" style="margin-top:12px">
+<label>الكمية</label>
+<input id="item1Qty" type="number" placeholder="500">
+</div>
+
+</div>
+
+
+<div class="project">
+
+<h3>المنتج الثاني</h3>
+
+<div class="field" style="margin-top:12px">
+<label>السعر</label>
+<input id="item2Price" type="number" placeholder="3">
+</div>
+
+<div class="field" style="margin-top:12px">
+<label>الكمية</label>
+<input id="item2Qty" type="number" placeholder="1000">
+</div>
+
+</div>
+
+</div>
+
+<button class="btn dark" onclick="comparePrices()">🛒 قارن المنتجين</button>
+
+<div id="priceCompareResult" class="result"></div>
+
+</div>
+
+</section>
+
+
+<!-- مولد الأفكار -->
+
 <section class="section" id="ideas">
 
-  <div class="section-title">
-    <h2>💡 مولّد أفكار المشاريع</h2>
-    <p>أدخل ظروفك ودع MASHRO3 يقترح لك أفكارًا مناسبة.</p>
-  </div>
+<div class="section-title">
+<h2>💡 مولّد أفكار المشاريع</h2>
+<p>إذا عندك رغبة تبدأ مشروعًا لكن لا تعرف من أين تبدأ.</p>
+</div>
 
-  <div class="card">
+<div class="card">
 
-    <div class="grid">
+<div class="grid">
 
-      <div class="field">
-        <label>💰 رأس المال المتاح</label>
-        <input id="ideaCapital" type="number" placeholder="مثال: 500">
-      </div>
+<div class="field">
+<label>💰 رأس المال</label>
+<input id="ideaCapital" type="number" placeholder="500">
+</div>
 
-      <div class="field">
-        <label>📍 أين تريد العمل؟</label>
-        <select id="ideaPlace">
-          <option value="any">أي مكان</option>
-          <option value="home">من المنزل</option>
-          <option value="online">أونلاين</option>
-          <option value="shop">محل</option>
-        </select>
-      </div>
+<div class="field">
+<label>📍 مكان العمل</label>
+<select id="ideaPlace">
+<option value="any">أي مكان</option>
+<option value="home">من المنزل</option>
+<option value="online">أونلاين</option>
+<option value="shop">محل</option>
+</select>
+</div>
 
-      <div class="field">
-        <label>⏱️ الوقت المتاح</label>
-        <select id="ideaTime">
-          <option value="low">قليل</option>
-          <option value="medium">متوسط</option>
-          <option value="high">كثير</option>
-        </select>
-      </div>
+<div class="field">
+<label>⏱️ الوقت المتاح</label>
+<select id="ideaTime">
+<option value="low">قليل</option>
+<option value="medium">متوسط</option>
+<option value="high">كثير</option>
+</select>
+</div>
 
-      <div class="field">
-        <label>🎯 المجال</label>
-        <select id="ideaField">
-          <option value="all">كل المجالات</option>
-          <option value="food">الأكل</option>
-          <option value="digital">رقمي</option>
-          <option value="trade">تجارة</option>
-          <option value="services">خدمات</option>
-        </select>
-      </div>
+<div class="field">
+<label>🎯 المجال</label>
+<select id="ideaField">
+<option value="all">كل المجالات</option>
+<option value="digital">رقمي</option>
+<option value="services">خدمات</option>
+<option value="trade">تجارة</option>
+<option value="food">أكل</option>
+</select>
+</div>
 
-    </div>
+</div>
 
-    <button class="btn" onclick="generateIdeas()">💡 اقترح لي مشاريع</button>
+<button class="btn" onclick="generateIdeas()">💡 أعطني أفكارًا</button>
 
-    <div id="ideasResult"></div>
+<div id="ideasResult"></div>
 
-  </div>
-
-</section>
-
-
-<section class="section" id="analyzer">
-
-  <div class="section-title">
-    <h2>🧠 محلل فكرة المشروع</h2>
-    <p>أدخل أرقام مشروعك لتحصل على تحليل مالي مبسط.</p>
-  </div>
-
-  <div class="card">
-
-    <div class="grid">
-
-      <div class="field">
-        <label>اسم المشروع</label>
-        <input id="projectName" placeholder="مثال: متجر إلكتروني">
-      </div>
-
-      <div class="field">
-        <label>نوع المشروع</label>
-        <input id="projectType" placeholder="مثال: تجارة">
-      </div>
-
-      <div class="field">
-        <label>العملة</label>
-        <select id="currency">
-          <option value="ر.ع">ر.ع</option>
-          <option value="$">$</option>
-          <option value="د.إ">د.إ</option>
-          <option value="ر.س">ر.س</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>رأس المال</label>
-        <input id="capital" type="number" placeholder="500">
-      </div>
-
-      <div class="field">
-        <label>تكلفة الوحدة</label>
-        <input id="cost" type="number" placeholder="5">
-      </div>
-
-      <div class="field">
-        <label>سعر البيع</label>
-        <input id="price" type="number" placeholder="10">
-      </div>
-
-      <div class="field">
-        <label>المبيعات الشهرية</label>
-        <input id="sales" type="number" placeholder="100">
-      </div>
-
-      <div class="field">
-        <label>المصاريف الثابتة شهريًا</label>
-        <input id="fixed" type="number" placeholder="100">
-      </div>
-
-    </div>
-
-    <button class="btn" onclick="analyzeProject()">🧠 حلّل المشروع</button>
-
-    <div id="analysisResult" class="result">
-
-      <div class="result-head">
-        <h3 id="analysisTitle"></h3>
-        <p id="analysisSubtitle"></p>
-      </div>
-
-      <div class="result-grid">
-
-        <div class="result-box">
-          <span>الإيرادات الشهرية</span>
-          <strong id="revenue"></strong>
-        </div>
-
-        <div class="result-box">
-          <span>الربح التقريبي</span>
-          <strong id="profit"></strong>
-        </div>
-
-        <div class="result-box">
-          <span>هامش الربح</span>
-          <strong id="margin"></strong>
-        </div>
-
-        <div class="result-box">
-          <span>نقطة التعادل</span>
-          <strong id="breakEven"></strong>
-        </div>
-
-      </div>
-
-      <div class="advice">
-        <strong>💡 التحليل الذكي</strong>
-        <p id="advice"></p>
-      </div>
-
-      <div class="risk">
-        <strong>⚠️ المخاطر والانتباه</strong>
-        <p id="risk"></p>
-      </div>
-
-      <div class="dashboard" id="dashboard">
-
-        <div class="dashboard-title">
-          <h3>📊 لوحة النتائج المتقدمة</h3>
-          <p>ملخص بصري سريع لقوة المشروع.</p>
-        </div>
-
-        <div class="dashboard-grid">
-
-          <div class="dash-card">
-            <h4>⭐ درجة المشروع</h4>
-            <div class="score-big" id="projectScore">0</div>
-            <div class="level" id="projectLevel"></div>
-          </div>
-
-          <div class="dash-card">
-            <h4>📈 قوة هامش الربح</h4>
-            <div class="progress">
-              <div class="progress-bar" id="marginBar"></div>
-            </div>
-            <p id="marginText" style="margin-top:10px"></p>
-          </div>
-
-          <div class="dash-card">
-            <h4>💰 وضع الربحية</h4>
-            <div class="progress">
-              <div class="progress-bar" id="profitBar"></div>
-            </div>
-            <p id="profitText" style="margin-top:10px"></p>
-          </div>
-
-          <div class="dash-card">
-            <h4>🚦 التقييم النهائي</h4>
-            <p id="finalEvaluation"></p>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
 
-<section class="section" id="compare">
+<!-- المشاريع -->
 
-  <div class="section-title">
-    <h2>⚔️ مقارنة مشروعين</h2>
-    <p>قارن بين مشروعين واختر الأقوى بناءً على عدة عوامل.</p>
-  </div>
+<section class="section" id="projects">
 
-  <div class="card">
-
-    <div class="compare-grid">
-
-      <div class="project-score">
-
-        <h3>🅰️ المشروع الأول</h3>
-
-        <div class="field" style="margin-top:15px">
-          <label>اسم المشروع</label>
-          <input id="p1name" placeholder="المشروع الأول">
-        </div>
-
-        <div class="field" style="margin-top:12px">
-          <label>رأس المال</label>
-          <input id="p1capital" type="number" placeholder="500">
-        </div>
-
-        <div class="field" style="margin-top:12px">
-          <label>الربح الشهري المتوقع</label>
-          <input id="p1profit" type="number" placeholder="200">
-        </div>
-
-        <div class="field" style="margin-top:12px">
-          <label>مستوى المخاطرة</label>
-          <select id="p1risk">
-            <option value="1">منخفضة</option>
-            <option value="2">متوسطة</option>
-            <option value="3">مرتفعة</option>
-          </select>
-        </div>
-
-        <div class="field" style="margin-top:12px">
-          <label>الوقت المطلوب</label>
-          <select id="p1time">
-            <option value="1">قليل</option>
-            <option value="2">متوسط</option>
-            <option value="3">كثير</option>
-          </select>
-        </div>
-
-      </div>
+<div class="section-title">
+<h2>🧠 أدوات المشاريع</h2>
+<p>لمن يريد دراسة مشروعه بشكل أعمق.</p>
+</div>
 
 
-      <div class="project-score">
+<!-- المحلل -->
 
-        <h3>🅱️ المشروع الثاني</h3>
+<div class="card">
 
-        <div class="field" style="margin-top:15px">
-          <label>اسم المشروع</label>
-          <input id="p2name" placeholder="المشروع الثاني">
-        </div>
+<h3>🧠 محلل فكرة المشروع</h3>
+<p class="card-sub">
+أدخل الأرقام واحصل على نتيجة تقديرية.
+</p>
 
-        <div class="field" style="margin-top:12px">
-          <label>رأس المال</label>
-          <input id="p2capital" type="number" placeholder="300">
-        </div>
+<div class="grid">
 
-        <div class="field" style="margin-top:12px">
-          <label>الربح الشهري المتوقع</label>
-          <input id="p2profit" type="number" placeholder="150">
-        </div>
+<div class="field">
+<label>اسم المشروع</label>
+<input id="projectName" placeholder="متجر إلكتروني">
+</div>
 
-        <div class="field" style="margin-top:12px">
-          <label>مستوى المخاطرة</label>
-          <select id="p2risk">
-            <option value="1">منخفضة</option>
-            <option value="2">متوسطة</option>
-            <option value="3">مرتفعة</option>
-          </select>
-        </div>
+<div class="field">
+<label>نوع المشروع</label>
+<input id="projectType" placeholder="تجارة">
+</div>
 
-        <div class="field" style="margin-top:12px">
-          <label>الوقت المطلوب</label>
-          <select id="p2time">
-            <option value="1">قليل</option>
-            <option value="2">متوسط</option>
-            <option value="3">كثير</option>
-          </select>
-        </div>
+<div class="field">
+<label>العملة</label>
+<select id="currency">
+<option value="ر.ع">ر.ع</option>
+<option value="$">$</option>
+<option value="ر.س">ر.س</option>
+<option value="د.إ">د.إ</option>
+</select>
+</div>
 
-      </div>
+<div class="field">
+<label>رأس المال</label>
+<input id="capital" type="number" placeholder="500">
+</div>
 
-    </div>
+<div class="field">
+<label>تكلفة الوحدة</label>
+<input id="cost" type="number" placeholder="5">
+</div>
 
-    <button class="btn dark" onclick="compareProjects()">⚔️ قارن المشروعين</button>
+<div class="field">
+<label>سعر البيع</label>
+<input id="price" type="number" placeholder="10">
+</div>
 
-    <div id="compareResult" class="compare-result">
+<div class="field">
+<label>المبيعات الشهرية</label>
+<input id="sales" type="number" placeholder="100">
+</div>
 
-      <div class="winner" id="winner"></div>
+<div class="field">
+<label>المصاريف الثابتة</label>
+<input id="fixed" type="number" placeholder="100">
+</div>
 
-      <div class="compare-grid" style="margin-top:15px">
+</div>
 
-        <div class="project-score">
-          <h3 id="compareName1"></h3>
-          <div class="score" id="compareScore1"></div>
-          <p>درجة المشروع</p>
-        </div>
+<button class="btn" onclick="analyzeProject()">🧠 حلّل المشروع</button>
 
-        <div class="project-score">
-          <h3 id="compareName2"></h3>
-          <div class="score" id="compareScore2"></div>
-          <p>درجة المشروع</p>
-        </div>
+<div id="analysisResult" class="result">
 
-      </div>
+<h3 id="analysisTitle"></h3>
+<p id="analysisSubtitle"></p>
 
-      <div class="advice">
-        <strong>📌 نتيجة المقارنة</strong>
-        <p id="compareSummary"></p>
-      </div>
+<div class="result-grid">
 
-    </div>
+<div class="result-box">
+<span>الإيرادات</span>
+<strong id="revenue"></strong>
+</div>
 
-  </div>
+<div class="result-box">
+<span>الربح</span>
+<strong id="profit"></strong>
+</div>
+
+<div class="result-box">
+<span>هامش الربح</span>
+<strong id="margin"></strong>
+</div>
+
+<div class="result-box">
+<span>نقطة التعادل</span>
+<strong id="breakEven"></strong>
+</div>
+
+</div>
+
+<div class="tip">
+<strong>💡 التحليل:</strong>
+<p id="advice"></p>
+</div>
+
+<div class="tip" style="background:#fff7ed;border-color:#f97316">
+<strong>⚠️ انتبه:</strong>
+<p id="risk"></p>
+</div>
+
+
+<div id="dashboard" class="dashboard">
+
+<h3 style="text-align:center;margin:20px 0 12px">
+📊 لوحة النتائج المتقدمة
+</h3>
+
+<div class="dashboard-grid">
+
+<div class="dash">
+<h4>⭐ درجة المشروع</h4>
+<div class="big-score" id="projectScore">0</div>
+<p id="projectLevel" style="text-align:center;font-weight:900"></p>
+</div>
+
+<div class="dash">
+<h4>📈 قوة هامش الربح</h4>
+<div class="progress">
+<div class="progress-bar" id="marginBar"></div>
+</div>
+<p id="marginText"></p>
+</div>
+
+<div class="dash">
+<h4>💰 وضع الربحية</h4>
+<div class="progress">
+<div class="progress-bar" id="profitBar"></div>
+</div>
+<p id="profitText"></p>
+</div>
+
+<div class="dash">
+<h4>🚦 التقييم</h4>
+<p id="finalEvaluation"></p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- مقارنة -->
+
+<div class="card">
+
+<h3>⚔️ مقارنة مشروعين</h3>
+<p class="card-sub">قارن الربحية والمخاطرة ورأس المال والوقت.</p>
+
+<div class="compare-grid">
+
+<div class="project">
+
+<h3>🅰️ المشروع الأول</h3>
+
+<div class="field" style="margin-top:10px">
+<label>الاسم</label>
+<input id="p1name" placeholder="المشروع الأول">
+</div>
+
+<div class="field" style="margin-top:10px">
+<label>رأس المال</label>
+<input id="p1capital" type="number" placeholder="500">
+</div>
+
+<div class="field" style="margin-top:10px">
+<label>الربح الشهري</label>
+<input id="p1profit" type="number" placeholder="200">
+</div>
+
+<div class="field" style="margin-top:10px">
+<label>المخاطرة</label>
+<select id="p1risk">
+<option value="1">منخفضة</option>
+<option value="2">متوسطة</option>
+<option value="3">مرتفعة</option>
+</select>
+</div>
+
+<div class="field" style="margin-top:10px">
+<label>الوقت</label>
+<select id="p1time">
+<option value="1">قليل</option>
+<option value="2">متوسط</option>
+<option value="3">كثير</option>
+</select>
+</div>
+
+</div>
+
+
+<div class="project">
+
+<h3>🅱️ المشروع الثاني</h3>
+
+<div class="field" style="margin-top:10px">
+<label>الاسم</label>
+<input id="p2name" placeholder="المشروع الثاني">
+</div>
+
+<div class="field" style="margin-top:10px">
+<label>رأس المال</label>
+<input id="p2capital" type="number" placeholder="300">
+</div>
+
+<div class="field" style="margin-top:10px">
+<label>الربح الشهري</label>
+<input id="p2profit" type="number" placeholder="150">
+</div>
+
+<div class="field" style="margin-top:10px">
+<label>المخاطرة</label>
+<select id="p2risk">
+<option value="1">منخفضة</option>
+<option value="2">متوسطة</option>
+<option value="3">مرتفعة</option>
+</select>
+</div>
+
+<div class="field" style="margin-top:10px">
+<label>الوقت</label>
+<select id="p2time">
+<option value="1">قليل</option>
+<option value="2">متوسط</option>
+<option value="3">كثير</option>
+</select>
+</div>
+
+</div>
+
+</div>
+
+<button class="btn dark" onclick="compareProjects()">⚔️ قارن المشروعين</button>
+
+<div id="compareResult" class="result"></div>
+
+</div>
+
+
+<!-- حاسبات المشروع -->
+
+<div class="grid">
+
+<div class="card">
+
+<h3>🎯 الربح المستهدف</h3>
+<p class="card-sub">كم وحدة تحتاج لبيعها؟</p>
+
+<div class="field">
+<label>المصاريف الثابتة</label>
+<input id="targetFixed" type="number" placeholder="100">
+</div>
+
+<div class="field" style="margin-top:10px">
+<label>الربح المستهدف</label>
+<input id="targetProfit" type="number" placeholder="500">
+</div>
+
+<div class="field" style="margin-top:10px">
+<label>تكلفة الوحدة</label>
+<input id="targetCost" type="number" placeholder="5">
+</div>
+
+<div class="field" style="margin-top:10px">
+<label>سعر البيع</label>
+<input id="targetPrice" type="number" placeholder="10">
+</div>
+
+<button class="btn green" onclick="calculateTarget()">احسب</button>
+<div id="targetResult" class="result"></div>
+
+</div>
+
+
+<div class="card">
+
+<h3>💵 سعر البيع</h3>
+<p class="card-sub">احسب السعر بعد إضافة نسبة الزيادة.</p>
+
+<div class="field">
+<label>التكلفة</label>
+<input id="saleCost" type="number" placeholder="5">
+</div>
+
+<div class="field" style="margin-top:10px">
+<label>نسبة الزيادة %</label>
+<input id="markup" type="number" placeholder="50">
+</div>
+
+<button class="btn green" onclick="calculatePrice()">احسب</button>
+<div id="saleResult" class="result"></div>
+
+</div>
+
+</div>
 
 </section>
 
 
-<section class="section" id="tools">
-
-  <div class="section-title">
-    <h2>🧮 الحاسبات الذكية</h2>
-    <p>أدوات بسيطة لاتخاذ قرارات أفضل.</p>
-  </div>
-
-  <div class="grid">
-
-    <div class="card">
-
-      <h3>🎯 حاسبة الربح المستهدف</h3>
-      <p class="card-sub">كم وحدة تحتاج لبيعها لتحقيق ربح معين؟</p>
-
-      <div class="field">
-        <label>التكلفة الثابتة</label>
-        <input id="targetFixed" type="number" placeholder="100">
-      </div>
-
-      <div class="field" style="margin-top:12px">
-        <label>الربح المستهدف</label>
-        <input id="targetProfit" type="number" placeholder="500">
-      </div>
-
-      <div class="field" style="margin-top:12px">
-        <label>تكلفة الوحدة</label>
-        <input id="targetCost" type="number" placeholder="5">
-      </div>
-
-      <div class="field" style="margin-top:12px">
-        <label>سعر البيع</label>
-        <input id="targetPrice" type="number" placeholder="10">
-      </div>
-
-      <button class="btn green" onclick="calculateTarget()">احسب الوحدات</button>
-
-      <div id="targetResult" class="result"></div>
-
-    </div>
-
-
-    <div class="card">
-
-      <h3>💵 حاسبة سعر البيع</h3>
-      <p class="card-sub">احسب سعر البيع بناءً على هامش الزيادة.</p>
-
-      <div class="field">
-        <label>تكلفة المنتج</label>
-        <input id="saleCost" type="number" placeholder="5">
-      </div>
-
-      <div class="field" style="margin-top:12px">
-        <label>نسبة الزيادة %</label>
-        <input id="markup" type="number" placeholder="50">
-      </div>
-
-      <button class="btn green" onclick="calculatePrice()">احسب سعر البيع</button>
-
-      <div id="saleResult" class="result"></div>
-
-    </div>
-
-  </div>
-
-</section>
-
+<!-- مميزات -->
 
 <section class="section">
 
-  <div class="section-title">
-    <h2>✨ لماذا MASHRO3؟</h2>
-    <p>صُمم ليكون بسيطًا وسريعًا ومفيدًا.</p>
-  </div>
+<div class="section-title">
+<h2>✨ ماذا يقدم MASHRO3؟</h2>
+</div>
 
-  <div class="features">
+<div class="features">
 
-    <div class="feature">
-      <h3>🧠 تحليل ذكي</h3>
-      <p>يعرض لك مؤشرات تساعدك على فهم وضع مشروعك.</p>
-    </div>
+<div class="feature">
+<h3>💰 قرارات مالية</h3>
+<p>افهم دخلك ومصاريفك وهدف الادخار بطريقة أبسط.</p>
+</div>
 
-    <div class="feature">
-      <h3>💡 أفكار مشاريع</h3>
-      <p>اقتراحات مبنية على رأس المال والوقت والمجال.</p>
-    </div>
+<div class="feature">
+<h3>🛒 شراء أذكى</h3>
+<p>قارن الأسعار والخصومات بدل الاعتماد على الإحساس فقط.</p>
+</div>
 
-    <div class="feature">
-      <h3>📊 مقارنة</h3>
-      <p>قارن بين مشروعين بطريقة سهلة وسريعة.</p>
-    </div>
+<div class="feature">
+<h3>🚀 بناء مشروع</h3>
+<p>أفكار وتحليل ومقارنة وحسابات في مكان واحد.</p>
+</div>
 
-  </div>
+</div>
 
 </section>
 
 
-<section class="section">
+<!-- الأسئلة -->
 
-  <div class="section-title">
-    <h2>❓ الأسئلة الشائعة</h2>
-  </div>
+<section class="section" id="faq">
 
-  <div class="card">
+<div class="section-title">
+<h2>❓ أسئلة شائعة</h2>
+</div>
 
-    <div class="faq">
-      <strong>هل MASHRO3 مجاني؟</strong>
-      <p>نعم، الأدوات الموجودة حاليًا مجانية للاستخدام.</p>
-    </div>
+<div class="card">
 
-    <div class="faq">
-      <strong>هل النتائج مضمونة؟</strong>
-      <p>لا. النتائج تقديرية وتعتمد على الأرقام التي يدخلها المستخدم.</p>
-    </div>
+<div class="faq">
+<strong>هل الموقع مجاني؟</strong>
+<p>نعم، الأدوات الموجودة في الموقع مجانية حاليًا.</p>
+</div>
 
-    <div class="faq">
-      <strong>هل أستطيع استخدامه من الهاتف أو الآيباد؟</strong>
-      <p>نعم، الموقع مصمم ليعمل على الشاشات الصغيرة والكبيرة.</p>
-    </div>
+<div class="faq">
+<strong>هل النتائج المالية مضمونة؟</strong>
+<p>لا. النتائج حسابات تقديرية تعتمد على الأرقام التي يدخلها المستخدم.</p>
+</div>
 
-    <div class="faq">
-      <strong>هل التحليل يغني عن دراسة المشروع؟</strong>
-      <p>لا، هو أداة مساعدة لاتخاذ قرار أولي وليس دراسة جدوى كاملة.</p>
-    </div>
+<div class="faq">
+<strong>هل أستطيع استخدامه من الآيباد؟</strong>
+<p>نعم، الموقع مصمم ليعمل على الهاتف والآيباد والكمبيوتر.</p>
+</div>
 
-  </div>
+<div class="faq">
+<strong>هل MASHRO3 يعطي نصيحة مالية شخصية؟</strong>
+<p>الأدوات تقدم حسابات ومؤشرات عامة وليست بديلاً عن مختص مالي.</p>
+</div>
+
+</div>
 
 </section>
 
 </main>
 
+
 <footer>
-  <strong>MASHRO3</strong>
-  <p>حلّل فكرتك. قارن خياراتك. ابدأ بذكاء.</p>
-  <small>النتائج تقديرية وليست ضمانًا للربح أو النجاح.</small>
+<strong>MASHRO3</strong>
+<p>فكّر بذكاء. احسب. قارن. ثم قرر.</p>
+<small>النتائج تقديرية ولا تضمن الربح أو النجاح.</small>
 </footer>
 
 
 <script>
 
-function money(value,currency){
-  return Number(value).toLocaleString('ar') + ' ' + currency;
+function money(n,c){
+return Number(n).toLocaleString('ar')+' '+c;
+}
+
+function scrollToTool(id){
+document.getElementById(id).scrollIntoView({
+behavior:'smooth',
+block:'start'
+});
 }
 
 
-/* مولد الأفكار */
+/* الميزانية */
+
+function calculateBudget(){
+
+const income=Number(document.getElementById('income').value)||0;
+
+const expenses=
+(Number(document.getElementById('housing').value)||0)+
+(Number(document.getElementById('food').value)||0)+
+(Number(document.getElementById('transport').value)||0)+
+(Number(document.getElementById('shopping').value)||0)+
+(Number(document.getElementById('other').value)||0);
+
+if(income<=0){
+alert('أدخل دخلك الشهري أولًا.');
+return;
+}
+
+const remaining=income-expenses;
+const percentage=(expenses/income)*100;
+
+let advice='';
+
+if(remaining>0 && percentage<60){
+advice='👍 وضعك جيد مبدئيًا. لديك مساحة من دخلك بعد المصاريف.';
+}else if(remaining>0){
+advice='🟡 لديك مبلغ متبقٍ، لكن المصاريف تستهلك جزءًا كبيرًا من دخلك.';
+}else{
+advice='🔴 مصاريفك تساوي أو تتجاوز دخلك. حاول مراجعة البنود الأعلى تكلفة.';
+}
+
+const r=document.getElementById('budgetResult');
+
+r.innerHTML=`
+<div class="result-grid">
+<div class="result-box">
+<span>إجمالي المصاريف</span>
+<strong>${expenses.toLocaleString('ar')}</strong>
+</div>
+<div class="result-box">
+<span>المتبقي</span>
+<strong class="${remaining>=0?'good':'bad'}">${remaining.toLocaleString('ar')}</strong>
+</div>
+<div class="result-box">
+<span>نسبة المصاريف</span>
+<strong>${percentage.toFixed(1)}%</strong>
+</div>
+<div class="result-box">
+<span>الحالة</span>
+<strong>${remaining>=0?'موجب':'عجز'}</strong>
+</div>
+</div>
+<div class="tip"><strong>💡</strong> ${advice}</div>
+`;
+
+r.classList.add('show');
+
+}
+
+
+/* الادخار */
+
+function calculateSaving(){
+
+const now=Number(document.getElementById('savedNow').value)||0;
+const goal=Number(document.getElementById('savingGoal').value)||0;
+const monthly=Number(document.getElementById('monthlySaving').value)||0;
+
+if(goal<=now){
+alert('أنت وصلت إلى الهدف أو تجاوزته بالفعل 🎉');
+return;
+}
+
+if(monthly<=0){
+alert('أدخل مبلغ الادخار الشهري.');
+return;
+}
+
+const remaining=goal-now;
+const months=Math.ceil(remaining/monthly);
+const years=Math.floor(months/12);
+const remMonths=months%12;
+
+let duration=months+' شهر';
+
+if(years>0){
+duration=years+' سنة و '+remMonths+' شهر';
+}
+
+const r=document.getElementById('savingResult');
+
+r.innerHTML=`
+<div class="result-grid">
+<div class="result-box">
+<span>المتبقي للهدف</span>
+<strong>${remaining.toLocaleString('ar')}</strong>
+</div>
+<div class="result-box">
+<span>المدة التقريبية</span>
+<strong class="blue">${duration}</strong>
+</div>
+</div>
+<div class="tip">
+🎯 إذا حافظت على ادخار ${monthly.toLocaleString('ar')} شهريًا، فهذا هو الوقت التقريبي للوصول لهدفك.
+</div>
+`;
+
+r.classList.add('show');
+
+}
+
+
+/* الخصم */
+
+function calculateDiscount(){
+
+const price=Number(document.getElementById('originalPrice').value)||0;
+const percent=Number(document.getElementById('discountPercent').value)||0;
+
+if(price<=0 || percent<0 || percent>100){
+alert('أدخل السعر ونسبة خصم صحيحة.');
+return;
+}
+
+const saved=price*(percent/100);
+const finalPrice=price-saved;
+
+const r=document.getElementById('discountResult');
+
+r.innerHTML=`
+<div class="result-grid">
+<div class="result-box">
+<span>السعر الأصلي</span>
+<strong>${price.toLocaleString('ar')}</strong>
+</div>
+<div class="result-box">
+<span>قيمة الخصم</span>
+<strong class="good">${saved.toFixed(2)}</strong>
+</div>
+<div class="result-box">
+<span>السعر النهائي</span>
+<strong class="blue">${finalPrice.toFixed(2)}</strong>
+</div>
+</div>
+`;
+
+r.classList.add('show');
+
+}
+
+
+/* مقارنة الأسعار */
+
+function comparePrices(){
+
+const p1=Number(document.getElementById('item1Price').value);
+const q1=Number(document.getElementById('item1Qty').value);
+const p2=Number(document.getElementById('item2Price').value);
+const q2=Number(document.getElementById('item2Qty').value);
+
+if(p1<=0||q1<=0||p2<=0||q2<=0){
+alert('أدخل السعر والكمية للمنتجين.');
+return;
+}
+
+const unit1=p1/q1;
+const unit2=p2/q2;
+
+let winner='';
+
+if(unit1<unit2){
+winner='🏆 المنتج الأول أفضل من ناحية السعر لكل وحدة.';
+}else if(unit2<unit1){
+winner='🏆 المنتج الثاني أفضل من ناحية السعر لكل وحدة.';
+}else{
+winner='⚖️ السعر لكل وحدة متساوٍ تقريبًا.';
+}
+
+const r=document.getElementById('priceCompareResult');
+
+r.innerHTML=`
+<div class="result-grid">
+<div class="result-box">
+<span>المنتج الأول / وحدة</span>
+<strong>${unit1.toFixed(4)}</strong>
+</div>
+<div class="result-box">
+<span>المنتج الثاني / وحدة</span>
+<strong>${unit2.toFixed(4)}</strong>
+</div>
+</div>
+<div class="winner">${winner}</div>
+<p style="margin-top:12px;color:#64748b">
+ملاحظة: هذه مقارنة سعرية فقط، ولا تعني بالضرورة أن جودة المنتجين متساوية.
+</p>
+`;
+
+r.classList.add('show');
+
+}
+
+
+/* الأفكار */
 
 function generateIdeas(){
 
-  const capital=Number(document.getElementById('ideaCapital').value)||0;
-  const place=document.getElementById('ideaPlace').value;
-  const time=document.getElementById('ideaTime').value;
-  const field=document.getElementById('ideaField').value;
+const capital=Number(document.getElementById('ideaCapital').value)||0;
+const place=document.getElementById('ideaPlace').value;
+const time=document.getElementById('ideaTime').value;
+const field=document.getElementById('ideaField').value;
 
-  const ideas=[
+const ideas=[
+{
+name:'منتجات رقمية',
+field:'digital',
+place:'online',
+cost:'منخفض',
+risk:'منخفض',
+profit:'مرتفع',
+score:90,
+desc:'بيع قوالب أو ملفات أو أدوات رقمية يمكن تسليمها إلكترونيًا.'
+},
+{
+name:'تصميم محتوى',
+field:'services',
+place:'online',
+cost:'منخفض',
+risk:'منخفض',
+profit:'متوسط',
+score:86,
+desc:'خدمة تصميم منشورات ومحتوى للمشاريع والحسابات.'
+},
+{
+name:'تصميم مواقع بسيطة',
+field:'services',
+place:'online',
+cost:'منخفض',
+risk:'منخفض',
+profit:'مرتفع',
+score:88,
+desc:'إنشاء صفحات ومواقع تعريفية للمشاريع الصغيرة.'
+},
+{
+name:'إدارة حسابات التواصل',
+field:'services',
+place:'online',
+cost:'منخفض',
+risk:'متوسط',
+profit:'مرتفع',
+score:82,
+desc:'تنظيم المحتوى والنشر للحسابات التجارية.'
+},
+{
+name:'متجر إلكتروني متخصص',
+field:'trade',
+place:'online',
+cost:'متوسط',
+risk:'متوسط',
+profit:'مرتفع',
+score:80,
+desc:'متجر يركز على فئة منتجات محددة بدل بيع كل شيء.'
+},
+{
+name:'إعادة بيع منتجات',
+field:'trade',
+place:'any',
+cost:'متوسط',
+risk:'متوسط',
+profit:'متوسط',
+score:76,
+desc:'شراء منتجات بسعر مناسب وإعادة بيعها بهامش ربح.'
+},
+{
+name:'حلويات منزلية',
+field:'food',
+place:'home',
+cost:'متوسط',
+risk:'متوسط',
+profit:'مرتفع',
+score:77,
+desc:'منتجات منزلية بكميات صغيرة حسب الطلب.'
+},
+{
+name:'وجبات منزلية',
+field:'food',
+place:'home',
+cost:'متوسط',
+risk:'متوسط',
+profit:'متوسط',
+score:72,
+desc:'وجبات موجهة لفئة معينة من العملاء.'
+}
+];
 
-    {
-      name:'منتجات رقمية',
-      field:'digital',
-      place:'online',
-      cost:'منخفض',
-      risk:'منخفض',
-      profit:'مرتفع',
-      score:88,
-      desc:'بيع ملفات أو قوالب أو أدوات رقمية بدون تخزين منتجات.'
-    },
+let list=ideas.filter(i=>{
+return (field==='all'||i.field===field)
+&&(place==='any'||i.place===place||i.place==='any');
+});
 
-    {
-      name:'تصميم محتوى للسوشيال ميديا',
-      field:'services',
-      place:'online',
-      cost:'منخفض',
-      risk:'منخفض',
-      profit:'متوسط',
-      score:84,
-      desc:'تقديم تصاميم ومنشورات للحسابات والمشاريع الصغيرة.'
-    },
+if(!list.length)list=ideas;
 
-    {
-      name:'تصميم مواقع بسيطة',
-      field:'services',
-      place:'online',
-      cost:'منخفض',
-      risk:'منخفض',
-      profit:'مرتفع',
-      score:86,
-      desc:'إنشاء مواقع تعريفية وصفحات هبوط للمشاريع.'
-    },
+list.forEach(i=>{
 
-    {
-      name:'إدارة حسابات التواصل',
-      field:'services',
-      place:'online',
-      cost:'منخفض',
-      risk:'متوسط',
-      profit:'مرتفع',
-      score:80,
-      desc:'مساعدة المشاريع في تنظيم ونشر المحتوى.'
-    },
+if(capital>0){
+if(i.cost==='منخفض'&&capital<100)i.score+=6;
+if(i.cost==='متوسط'&&capital>=300)i.score+=6;
+if(i.cost==='متوسط'&&capital<150)i.score-=15;
+}
 
-    {
-      name:'متجر إلكتروني متخصص',
-      field:'trade',
-      place:'online',
-      cost:'متوسط',
-      risk:'متوسط',
-      profit:'مرتفع',
-      score:78,
-      desc:'اختيار منتج أو فئة محددة وبناء متجر متخصص حولها.'
-    },
+if(time==='low'&&i.place==='online')i.score+=7;
+if(time==='low'&&i.field==='food')i.score-=8;
+if(time==='high'&&i.field==='food')i.score+=5;
 
-    {
-      name:'إعادة بيع المنتجات',
-      field:'trade',
-      place:'any',
-      cost:'متوسط',
-      risk:'متوسط',
-      profit:'متوسط',
-      score:75,
-      desc:'شراء منتجات بسعر مناسب وإعادة بيعها بهامش ربح.'
-    },
+});
 
-    {
-      name:'حلويات منزلية',
-      field:'food',
-      place:'home',
-      cost:'متوسط',
-      risk:'متوسط',
-      profit:'مرتفع',
-      score:77,
-      desc:'بيع منتجات منزلية حسب الطلب وبكميات مدروسة.'
-    },
+list.sort((a,b)=>b.score-a.score);
 
-    {
-      name:'وجبات منزلية',
-      field:'food',
-      place:'home',
-      cost:'متوسط',
-      risk:'متوسط',
-      profit:'متوسط',
-      score:72,
-      desc:'إعداد وجبات منزلية لفئة محددة من العملاء.'
-    }
+const top=list.slice(0,3);
 
-  ];
+let html=`
+<div class="best">
+🏆 <strong>أفضل اختيار حاليًا: ${top[0].name}</strong>
+<p>${top[0].desc}</p>
+</div>
+<div class="idea-list">
+`;
 
-  let filtered=ideas.filter(i=>{
-    const fieldOK=field==='all'||i.field===field;
-    const placeOK=place==='any'||i.place===place||i.place==='any';
-    return fieldOK&&placeOK;
-  });
+top.forEach(i=>{
+html+=`
+<div class="idea">
+<h4>${i.name}</h4>
+<p>${i.desc}</p>
+<div class="tags">
+<span class="tag">⭐ ${Math.min(i.score,100)}/100</span>
+<span class="tag">💰 ${i.cost}</span>
+<span class="tag">⚠️ ${i.risk}</span>
+<span class="tag">📈 ${i.profit}</span>
+</div>
+</div>
+`;
+});
 
-  if(filtered.length===0) filtered=ideas;
+html+='</div>';
 
-  filtered.forEach(i=>{
-
-    if(capital>0){
-      if(i.cost==='منخفض' && capital<100) i.score+=5;
-      if(i.cost==='متوسط' && capital>=300) i.score+=5;
-      if(i.cost==='متوسط' && capital<150) i.score-=12;
-    }
-
-    if(time==='low'){
-      if(i.place==='online') i.score+=7;
-      if(i.field==='food') i.score-=8;
-    }
-
-    if(time==='high' && i.field==='food') i.score+=5;
-
-  });
-
-  filtered.sort((a,b)=>b.score-a.score);
-
-  const top=filtered.slice(0,3);
-
-  let html='';
-
-  if(top.length){
-
-    html+=`
-      <div class="best">
-        🏆 <strong>أفضل اختيار حاليًا: ${top[0].name}</strong>
-        <p>${top[0].desc}</p>
-      </div>
-    `;
-
-    html+=`<div class="idea-list">`;
-
-    top.forEach(i=>{
-
-      html+=`
-        <div class="idea">
-
-          <h4>${i.name}</h4>
-
-          <p>${i.desc}</p>
-
-          <div class="idea-tags">
-            <span class="tag">⭐ ${Math.min(i.score,100)}/100</span>
-            <span class="tag">💰 تكلفة ${i.cost}</span>
-            <span class="tag">⚠️ ${i.risk}</span>
-            <span class="tag">📈 ${i.profit}</span>
-          </div>
-
-        </div>
-      `;
-
-    });
-
-    html+='</div>';
-
-  }
-
-  document.getElementById('ideasResult').innerHTML=html;
+document.getElementById('ideasResult').innerHTML=html;
 
 }
 
@@ -1238,328 +1360,250 @@ function generateIdeas(){
 
 function analyzeProject(){
 
-  const name=document.getElementById('projectName').value.trim()||'مشروعك';
-  const type=document.getElementById('projectType').value.trim()||'مشروع';
-  const currency=document.getElementById('currency').value;
+const name=document.getElementById('projectName').value.trim()||'مشروعك';
+const type=document.getElementById('projectType').value.trim()||'مشروع';
+const currency=document.getElementById('currency').value;
 
-  const capital=Number(document.getElementById('capital').value);
-  const cost=Number(document.getElementById('cost').value);
-  const price=Number(document.getElementById('price').value);
-  const sales=Number(document.getElementById('sales').value);
-  const fixed=Number(document.getElementById('fixed').value);
+const capital=Number(document.getElementById('capital').value);
+const cost=Number(document.getElementById('cost').value);
+const price=Number(document.getElementById('price').value);
+const sales=Number(document.getElementById('sales').value);
+const fixed=Number(document.getElementById('fixed').value);
 
-  const result=document.getElementById('analysisResult');
+if(
+isNaN(capital)||isNaN(cost)||isNaN(price)||isNaN(sales)||isNaN(fixed)||
+price<=0||sales<=0||cost<0||fixed<0||capital<0
+){
+alert('تأكد من إدخال الأرقام بشكل صحيح.');
+return;
+}
 
-  if(
-    [capital,cost,price,sales,fixed].some(v=>isNaN(v)||v<0) ||
-    sales<=0 ||
-    price<=0 ||
-    cost<0
-  ){
-    alert('تأكد من إدخال جميع الأرقام بشكل صحيح.');
-    return;
-  }
+const revenue=price*sales;
+const variable=cost*sales;
+const profit=revenue-variable-fixed;
+const margin=(profit/revenue)*100;
 
-  const revenue=price*sales;
-  const variableCost=cost*sales;
-  const profit=revenue-variableCost-fixed;
+let breakEven='غير ممكن';
 
-  const margin=revenue>0?(profit/revenue)*100:0;
+if(price>cost){
+breakEven=Math.ceil(fixed/(price-cost));
+}
 
-  let breakEven='غير ممكن';
+let score=30;
 
-  if(price>cost){
-    breakEven=Math.ceil(fixed/(price-cost));
-  }
+if(profit>0)score=60;
+if(profit>0&&margin>=15)score=75;
+if(profit>0&&margin>=30)score=90;
+if(price<=cost)score=20;
 
-  let score=30;
+let title,advice,risk;
 
-  if(profit>0) score=60;
-  if(profit>0 && margin>=15) score=75;
-  if(profit>0 && margin>=30) score=90;
+if(price<=cost){
+title='⚠️ يحتاج إلى تعديل';
+advice='سعر البيع لا يعطي هامشًا كافيًا بعد تكلفة الوحدة. جرّب تخفيض التكلفة أو تعديل السعر.';
+risk='البيع بسعر قريب من التكلفة قد لا يغطي المصاريف الأخرى.';
+}
+else if(profit>0&&margin>=30){
+title='🚀 مؤشر قوي مبدئيًا';
+advice='الأرقام تبدو جيدة مبدئيًا. الخطوة الأهم هي اختبار الطلب الحقيقي.';
+risk='الأرقام التقديرية لا تضمن أن المبيعات ستحدث فعليًا.';
+}
+else if(profit>0){
+title='👍 قابل للدراسة';
+advice='هناك ربح تقديري، لكن يمكن تحسين الهامش أو زيادة المبيعات.';
+risk='راقب المصاريف والتسويق والتكاليف غير المتوقعة.';
+}
+else{
+title='🛑 يحتاج إلى مراجعة';
+advice='الأرقام الحالية تشير إلى خسارة تقديرية. راجع السعر والتكلفة والمبيعات.';
+risk='الاستمرار بهذه الأرقام قد يؤدي إلى خسارة شهرية.';
+}
 
-  if(price<=cost) score=20;
+document.getElementById('analysisTitle').textContent=title;
+document.getElementById('analysisSubtitle').textContent=name+' — '+type;
+document.getElementById('revenue').textContent=money(revenue,currency);
+document.getElementById('profit').textContent=money(profit,currency);
+document.getElementById('profit').className=profit>=0?'good':'bad';
+document.getElementById('margin').textContent=margin.toFixed(1)+'%';
+document.getElementById('margin').className=margin>=0?'blue':'bad';
+document.getElementById('breakEven').textContent=
+breakEven==='غير ممكن'?breakEven:breakEven+' وحدة';
+document.getElementById('advice').textContent=advice;
+document.getElementById('risk').textContent=risk;
 
-  let title='';
-  let subtitle='';
-  let advice='';
-  let risk='';
+document.getElementById('projectScore').textContent=score+'/100';
 
-  if(price<=cost){
+document.getElementById('projectLevel').textContent=
+score>=90?'🔥 ممتاز مبدئيًا':
+score>=75?'🟢 جيد':
+score>=60?'🟡 يحتاج تطوير':
+'🔴 يحتاج مراجعة';
 
-    title='⚠️ يحتاج إلى تعديل';
-    subtitle='سعر البيع لا يعطي هامشًا كافيًا بعد تكلفة الوحدة.';
+document.getElementById('marginBar').style.width=
+Math.max(0,Math.min(margin,100))+'%';
 
-    advice='حاول رفع سعر البيع أو تخفيض تكلفة الوحدة قبل البدء، ثم أعد التحليل.';
+document.getElementById('marginText').textContent=
+'هامش الربح: '+margin.toFixed(1)+'%';
 
-    risk='بيع المنتج بسعر مساوي أو أقل من تكلفته قد يؤدي إلى خسارة عند إضافة المصاريف الأخرى.';
+let profitStrength=revenue>0?(profit/revenue)*100:0;
 
-  }else if(profit>0 && margin>=30){
+document.getElementById('profitBar').style.width=
+Math.max(0,Math.min(profitStrength,100))+'%';
 
-    title='🚀 مؤشر قوي مبدئيًا';
-    subtitle='الأرقام المدخلة تشير إلى ربحية جيدة مبدئيًا.';
+document.getElementById('profitText').textContent=
+profit>=0?'المشروع يحقق ربحًا تقديريًا.':'المشروع يحتاج إلى تعديل.';
 
-    advice='المشروع يبدو جيدًا من ناحية الأرقام الحالية. ركّز الآن على اختبار الطلب الحقيقي وتكاليف التسويق والتشغيل.';
+document.getElementById('finalEvaluation').textContent=
+score>=75
+?'المؤشرات الحالية مشجعة، لكن اختبر الفكرة في الواقع.'
+:'من الأفضل تعديل الأرقام ثم إعادة التحليل.';
 
-    risk='لا تعتمد على الحساب وحده؛ المبيعات الفعلية قد تختلف عن التوقعات.';
-
-  }else if(profit>0){
-
-    title='👍 مشروع قابل للدراسة';
-    subtitle='المشروع يحقق ربحًا تقديريًا وفق الأرقام المدخلة.';
-
-    advice='هناك ربح تقديري، لكن حاول تحسين هامش الربح أو زيادة المبيعات للوصول إلى وضع أقوى.';
-
-    risk='راقب المصاريف الثابتة وتكلفة اكتساب العملاء لأنها قد تقلل الربح الفعلي.';
-
-  }else{
-
-    title='🛑 يحتاج إلى مراجعة';
-    subtitle='الأرقام الحالية تشير إلى خسارة تقديرية.';
-
-    advice='راجع سعر البيع والتكلفة والمبيعات المتوقعة قبل اتخاذ قرار بالبدء.';
-
-    risk='الاستمرار بهذه الأرقام قد يؤدي إلى خسائر شهرية.';
-
-  }
-
-  document.getElementById('analysisTitle').textContent=title;
-  document.getElementById('analysisSubtitle').textContent=
-    name+' — '+type;
-
-  document.getElementById('revenue').textContent=
-    money(revenue,currency);
-
-  document.getElementById('profit').textContent=
-    money(profit,currency);
-
-  document.getElementById('profit').className=profit>=0?'good':'bad';
-
-  document.getElementById('margin').textContent=
-    margin.toFixed(1)+'%';
-
-  document.getElementById('margin').className=
-    margin>=0?'blue':'bad';
-
-  document.getElementById('breakEven').textContent=
-    breakEven==='غير ممكن'
-    ?breakEven
-    :breakEven+' وحدة';
-
-  document.getElementById('advice').textContent=advice;
-  document.getElementById('risk').textContent=risk;
-
-  /* لوحة النتائج */
-
-  document.getElementById('projectScore').textContent=score+'/100';
-
-  let level='';
-
-  if(score>=90) level='🔥 ممتاز مبدئيًا';
-  else if(score>=75) level='🟢 جيد';
-  else if(score>=60) level='🟡 يحتاج تطوير';
-  else level='🔴 يحتاج مراجعة';
-
-  document.getElementById('projectLevel').textContent=level;
-
-  const marginPercent=Math.max(0,Math.min(margin,100));
-
-  document.getElementById('marginBar').style.width=
-    marginPercent+'%';
-
-  document.getElementById('marginText').textContent=
-    'هامش الربح الحالي: '+margin.toFixed(1)+'%';
-
-  let profitStrength=0;
-
-  if(revenue>0){
-    profitStrength=(profit/revenue)*100;
-  }
-
-  profitStrength=Math.max(0,Math.min(profitStrength,100));
-
-  document.getElementById('profitBar').style.width=
-    profitStrength+'%';
-
-  document.getElementById('profitText').textContent=
-    profit>=0
-    ?'المشروع يحقق ربحًا تقديريًا.'
-    :'المشروع يحتاج إلى تعديل قبل البدء.';
-
-  document.getElementById('finalEvaluation').textContent=
-    score>=75
-    ?'المؤشرات الحالية مشجعة، لكن يجب اختبار الفكرة على أرض الواقع.'
-    :'من الأفضل تعديل بعض الأرقام وإعادة التحليل قبل اتخاذ قرار.';
-
-  document.getElementById('dashboard').classList.add('show');
-
-  result.classList.add('show');
-
-  result.scrollIntoView({
-    behavior:'smooth',
-    block:'start'
-  });
+document.getElementById('dashboard').classList.add('show');
+document.getElementById('analysisResult').classList.add('show');
 
 }
 
 
-/* مقارنة مشروعين */
+/* مقارنة المشاريع */
 
 function compareProjects(){
 
-  const n1=document.getElementById('p1name').value.trim()||'المشروع الأول';
-  const n2=document.getElementById('p2name').value.trim()||'المشروع الثاني';
+const n1=document.getElementById('p1name').value||'المشروع الأول';
+const n2=document.getElementById('p2name').value||'المشروع الثاني';
 
-  const c1=Number(document.getElementById('p1capital').value);
-  const c2=Number(document.getElementById('p2capital').value);
+const c1=Number(document.getElementById('p1capital').value);
+const c2=Number(document.getElementById('p2capital').value);
 
-  const pr1=Number(document.getElementById('p1profit').value);
-  const pr2=Number(document.getElementById('p2profit').value);
+const pr1=Number(document.getElementById('p1profit').value);
+const pr2=Number(document.getElementById('p2profit').value);
 
-  const r1=Number(document.getElementById('p1risk').value);
-  const r2=Number(document.getElementById('p2risk').value);
+const r1=Number(document.getElementById('p1risk').value);
+const r2=Number(document.getElementById('p2risk').value);
 
-  const t1=Number(document.getElementById('p1time').value);
-  const t2=Number(document.getElementById('p2time').value);
+const t1=Number(document.getElementById('p1time').value);
+const t2=Number(document.getElementById('p2time').value);
 
-  if(
-    c1<=0 ||
-    c2<=0 ||
-    pr1<0 ||
-    pr2<0
-  ){
-    alert('أدخل رأس المال والربح لكل مشروع بشكل صحيح.');
-    return;
-  }
+if(c1<=0||c2<=0||pr1<0||pr2<0){
+alert('أدخل بيانات المشروعين بشكل صحيح.');
+return;
+}
 
-  function score(capital,profit,risk,time){
+function score(c,p,r,t){
 
-    const profitScore=Math.min((profit/capital)*100,60);
+return Math.round(
+Math.min((p/c)*100,60)+
+(4-r)*10+
+Math.max(0,20-c/1000)+
+(4-t)*5
+);
 
-    const riskScore=(4-risk)*10;
+}
 
-    const capitalScore=Math.max(0,20-(capital/1000));
+const s1=score(c1,pr1,r1,t1);
+const s2=score(c2,pr2,r2,t2);
 
-    const timeScore=(4-time)*5;
+let winner;
 
-    return Math.round(
-      profitScore+
-      riskScore+
-      capitalScore+
-      timeScore
-    );
+if(s1>s2){
+winner='🏆 الأفضل مبدئيًا: '+n1;
+}else if(s2>s1){
+winner='🏆 الأفضل مبدئيًا: '+n2;
+}else{
+winner='⚖️ المشروعان متعادلان مبدئيًا';
+}
 
-  }
+const difference=Math.abs(s1-s2);
 
-  const s1=score(c1,pr1,r1,t1);
-  const s2=score(c2,pr2,r2,t2);
+let summary;
 
-  let winner='';
+if(s1>s2){
+summary=n1+' يتفوق بفارق '+difference+' نقطة حسب البيانات المدخلة.';
+}else if(s2>s1){
+summary=n2+' يتفوق بفارق '+difference+' نقطة حسب البيانات المدخلة.';
+}else{
+summary='النتيجة متقاربة جدًا بين المشروعين.';
+}
 
-  if(s1>s2){
-    winner='🏆 المشروع الأفضل مبدئيًا: '+n1;
-  }else if(s2>s1){
-    winner='🏆 المشروع الأفضل مبدئيًا: '+n2;
-  }else{
-    winner='⚖️ النتيجة: تعادل';
-  }
+document.getElementById('compareResult').innerHTML=`
+<div class="winner">${winner}</div>
 
-  document.getElementById('winner').textContent=winner;
+<div class="compare-grid" style="margin-top:15px">
 
-  document.getElementById('compareName1').textContent=n1;
-  document.getElementById('compareName2').textContent=n2;
+<div class="project">
+<h3>${n1}</h3>
+<div class="score">${s1}</div>
+<p style="text-align:center">درجة المشروع</p>
+</div>
 
-  document.getElementById('compareScore1').textContent=s1;
-  document.getElementById('compareScore2').textContent=s2;
+<div class="project">
+<h3>${n2}</h3>
+<div class="score">${s2}</div>
+<p style="text-align:center">درجة المشروع</p>
+</div>
 
-  const difference=Math.abs(s1-s2);
+</div>
 
-  let summary='';
+<div class="tip">
+<strong>📌 النتيجة:</strong> ${summary}
+</div>
+`;
 
-  if(s1>s2){
-    summary=
-      n1+' يتفوق حاليًا بفارق '+difference+
-      ' نقطة وفق العوامل التي أدخلتها.';
-  }else if(s2>s1){
-    summary=
-      n2+' يتفوق حاليًا بفارق '+difference+
-      ' نقطة وفق العوامل التي أدخلتها.';
-  }else{
-    summary=
-      'المشروعان متقاربان جدًا حسب البيانات الحالية.';
-  }
-
-  document.getElementById('compareSummary').textContent=summary;
-
-  document.getElementById('compareResult').classList.add('show');
-
-  document.getElementById('compareResult').scrollIntoView({
-    behavior:'smooth',
-    block:'center'
-  });
+document.getElementById('compareResult').classList.add('show');
 
 }
 
 
-/* حاسبة الربح المستهدف */
+/* الربح المستهدف */
 
 function calculateTarget(){
 
-  const fixed=Number(document.getElementById('targetFixed').value);
-  const target=Number(document.getElementById('targetProfit').value);
-  const cost=Number(document.getElementById('targetCost').value);
-  const price=Number(document.getElementById('targetPrice').value);
+const fixed=Number(document.getElementById('targetFixed').value);
+const target=Number(document.getElementById('targetProfit').value);
+const cost=Number(document.getElementById('targetCost').value);
+const price=Number(document.getElementById('targetPrice').value);
 
-  if(
-    fixed<0 ||
-    target<0 ||
-    cost<0 ||
-    price<=cost
-  ){
-    alert('تأكد من الأرقام، ويجب أن يكون سعر البيع أكبر من تكلفة الوحدة.');
-    return;
-  }
+if(fixed<0||target<0||cost<0||price<=cost){
+alert('يجب أن يكون سعر البيع أكبر من تكلفة الوحدة.');
+return;
+}
 
-  const units=Math.ceil(
-    (fixed+target)/(price-cost)
-  );
+const units=Math.ceil((fixed+target)/(price-cost));
 
-  const result=document.getElementById('targetResult');
+const r=document.getElementById('targetResult');
 
-  result.innerHTML=
-    '<strong>🎯 النتيجة</strong><br>'+
-    'تحتاج إلى بيع تقريبًا <strong>'+
-    units+
-    '</strong> وحدة لتحقيق الربح المستهدف.';
+r.innerHTML=
+'🎯 تحتاج إلى بيع <strong style="font-size:25px;color:#059669">'+
+units+
+'</strong> وحدة تقريبًا.';
 
-  result.classList.add('show');
+r.classList.add('show');
 
 }
 
 
-/* حاسبة سعر البيع */
+/* سعر البيع */
 
 function calculatePrice(){
 
-  const cost=Number(document.getElementById('saleCost').value);
-  const markup=Number(document.getElementById('markup').value);
+const cost=Number(document.getElementById('saleCost').value);
+const markup=Number(document.getElementById('markup').value);
 
-  if(cost<0 || markup<0){
-    alert('أدخل أرقامًا صحيحة.');
-    return;
-  }
+if(cost<0||markup<0){
+alert('أدخل أرقامًا صحيحة.');
+return;
+}
 
-  const price=cost*(1+markup/100);
+const price=cost*(1+markup/100);
 
-  const result=document.getElementById('saleResult');
+const r=document.getElementById('saleResult');
 
-  result.innerHTML=
-    '<strong>💵 سعر البيع المقترح</strong><br>'+
-    '<span style="font-size:25px;color:#059669;font-weight:900">'+
-    price.toFixed(2)+
-    '</span>';
+r.innerHTML=
+'💵 سعر البيع المقترح:<br>'+
+'<strong style="font-size:28px;color:#059669">'+
+price.toFixed(2)+
+'</strong>';
 
-  result.classList.add('show');
+r.classList.add('show');
 
 }
 
