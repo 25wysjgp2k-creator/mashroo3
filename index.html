@@ -7,212 +7,433 @@
 <meta name="google-site-verification" content="t4FJ_daYfcs8uqmho_BDE5Sj6s7ccLArRSoG68DYU" />
 <meta name="description" content="MASHRO3 - أدوات مالية مجانية وأفكار مشاريع وخطط تفاعلية.">
 <title>MASHRO3 | مشروعك يبدأ هنا</title>
+
 <style>
-:root{--bg:#08111f;--panel:#111e30;--panel2:#17273c;--green:#39d6a0;--text:#f4f7fb;--muted:#aab8ca;--border:#263951}
+:root{
+  --bg:#f4f7fb;
+  --surface:#ffffff;
+  --surface2:#edf4ff;
+  --primary:#2457d6;
+  --primary-dark:#1742ad;
+  --accent:#0d9488;
+  --text:#17233b;
+  --muted:#64748b;
+  --border:#dce5f0;
+  --success:#087f5b;
+  --warning:#fff4d6;
+  --shadow:0 5px 20px rgba(31,55,90,.07);
+}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Tahoma,sans-serif;line-height:1.8}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Arial,Tahoma,sans-serif;line-height:1.8
+}
 button,input,select,textarea{font:inherit}
-button{cursor:pointer}
-header{position:sticky;top:0;z-index:10;background:#08111ff5;border-bottom:1px solid var(--border)}
-.header-inner,main{max-width:1180px;margin:auto;padding:14px 18px}
-.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.brand{font-size:25px;font-weight:bold;color:var(--green)}
-nav,.actions{display:flex;gap:7px;flex-wrap:wrap}
-button{border:1px solid var(--border);border-radius:11px;padding:9px 13px;background:var(--panel);color:var(--text)}
-button:hover{border-color:var(--green)}
-.primary,.active{background:var(--green)!important;color:#052016!important;font-weight:bold}
-input,select,textarea{width:100%;padding:10px;background:#091526;color:white;border:1px solid #30435c;border-radius:9px}
-.currency-box{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
-.currency-box select{width:auto;max-width:180px}
-.currency-box input{width:100px}
-.page{display:none;padding:15px 0}
-.page.active{display:block}
-.hero{padding:30px;border:1px solid var(--border);border-radius:22px;background:linear-gradient(135deg,#174638,#13243a,#0d1828)}
-h1{font-size:clamp(30px,5vw,45px);line-height:1.4}
-h2{font-size:27px}
-h3{margin:5px 0}
+button{cursor:pointer;transition:.18s ease}
+button:focus-visible,input:focus-visible,select:focus-visible{
+  outline:3px solid #8db4ff;outline-offset:2px
+}
+header{
+  position:sticky;top:0;z-index:20;
+  background:rgba(255,255,255,.97);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 2px 12px rgba(25,45,75,.04)
+}
+.header-inner,main{max-width:1200px;margin:auto;padding:14px 20px}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{font-size:26px;font-weight:900;color:var(--primary);line-height:1.3}
+.brand .small{font-size:12px;color:var(--muted);font-weight:normal}
+nav,.actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+button{
+  border:1px solid var(--border);border-radius:10px;padding:9px 14px;
+  background:var(--surface);color:var(--text);font-weight:600
+}
+button:hover{border-color:var(--primary);transform:translateY(-1px)}
+button:disabled{opacity:.55;cursor:not-allowed;transform:none}
+.primary,.nav-btn.active{
+  background:var(--primary)!important;color:#fff!important;
+  border-color:var(--primary)!important
+}
+.primary:hover{background:var(--primary-dark)!important}
+.nav-btn{padding:8px 11px;font-size:13px}
+input,select,textarea{
+  width:100%;padding:11px 12px;background:#fff;color:var(--text);
+  border:1px solid #cbd7e6;border-radius:10px;min-width:0
+}
+input::placeholder,textarea::placeholder{color:#8794a8}
+label{font-weight:700;font-size:14px}
+.currency-box{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.currency-box select{width:auto;max-width:175px}
+.currency-box input{width:110px}
+.page{display:none;padding:15px 0 35px;min-height:55vh}
+.page.active{display:block;animation:appear .2s ease}
+@keyframes appear{from{opacity:.6;transform:translateY(4px)}to{opacity:1;transform:none}}
+.hero{
+  padding:35px;border-radius:24px;color:white;
+  background:linear-gradient(125deg,#1746b5,#3779ef 62%,#0d9488);
+  box-shadow:var(--shadow)
+}
+.hero h1{font-size:clamp(30px,5vw,46px);line-height:1.35;margin:8px 0}
+.hero p{max-width:760px;color:#f0f5ff}
+.hero .small{color:#dce8ff}
+.hero button{background:#fff;color:var(--primary);border-color:#fff}
+h1,h2,h3{line-height:1.45}
+h2{font-size:27px;margin:10px 0}
+h3{margin:5px 0 8px}
+p{margin:8px 0}
 .muted,.small{color:var(--muted)}
 .small{font-size:12px}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
-.card,.tool-panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px;margin:12px 0;min-width:0}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.card,.tool-panel{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:17px;padding:20px;margin:14px 0;
+  min-width:0;box-shadow:var(--shadow)
+}
 .card p{color:var(--muted);font-size:14px}
-.card-icon{font-size:27px}
-.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:20px 0}
-.stat,.result-item{background:var(--panel2);border-radius:12px;padding:13px}
-.stat strong{display:block;color:var(--green);font-size:22px}
-.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:15px 0}
-.field{display:flex;flex-direction:column;gap:5px}
+.card-icon{font-size:30px}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:22px 0}
+.stat{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.24);border-radius:14px;padding:14px}
+.stat strong{display:block;font-size:24px;color:inherit}
+.stat span{font-size:13px}
+.stat-light{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px;box-shadow:var(--shadow)}
+.stat-light strong{display:block;color:var(--primary);font-size:24px}
+.stat-light span{color:var(--muted);font-size:13px}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:15px 0}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
 .full{grid-column:1/-1}
-.result{background:#0b1928;border:1px solid #29465a;border-radius:12px;padding:15px;margin-top:14px;overflow-wrap:anywhere}
-.result strong,.idea h3{color:var(--green)}
+.result{
+  background:#f0f6ff;border:1px solid #cbdcf9;
+  border-radius:13px;padding:16px;margin-top:15px;overflow-wrap:anywhere
+}
+.result strong,.idea h3{color:var(--primary)}
 .result-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.result-item{background:#fff;border:1px solid var(--border);border-radius:12px;padding:13px}
 .result-item span{display:block;color:var(--muted);font-size:12px}
-.idea{background:#0c1929;border:1px solid var(--border);border-radius:14px;padding:16px;margin:12px 0}
-.tag{display:inline-block;border:1px solid #34516a;border-radius:20px;padding:2px 9px;margin:3px;font-size:12px}
-.notice{background:#172b34;border:1px solid #28594b;border-radius:12px;padding:13px;margin:15px 0}
-.tool-area{margin-top:20px;scroll-margin-top:110px}
-.check-row{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)}
-.check-row input{width:auto}
-footer{text-align:center;border-top:1px solid var(--border);padding:25px;color:var(--muted)}
+.idea{
+  background:#fff;border:1px solid var(--border);border-radius:16px;
+  padding:19px;margin:14px 0;box-shadow:var(--shadow)
+}
+.tag{
+  display:inline-block;background:#edf4ff;color:#214da9;
+  border:1px solid #d5e4ff;border-radius:20px;
+  padding:3px 10px;margin:3px;font-size:12px
+}
+.notice{background:#eaf8f4;border:1px solid #b7e6d8;border-radius:13px;padding:14px;margin:16px 0;color:#175e4d}
+.warning{background:var(--warning);border-color:#f1dfa6;color:#775716}
+.tool-area{margin-top:20px;scroll-margin-top:120px}
+.check-row{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}
+.check-row input{width:auto;flex-shrink:0}
+.check-row span{flex:1;overflow-wrap:anywhere}
+.check-row button{padding:5px 9px;font-size:12px}
+footer{text-align:center;border-top:1px solid var(--border);padding:25px;color:var(--muted);background:#fff}
 .hidden{display:none!important}
-@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.header-inner{justify-content:center}nav{justify-content:center}}
-@media(max-width:520px){main{padding:10px}.grid,.form-grid,.result-grid,.stats{grid-template-columns:1fr}.full{grid-column:auto}.hero{padding:20px}.currency-box{justify-content:center}nav{width:100%}.nav-btn{flex:1;padding:7px 4px;font-size:12px}}
+.section-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.empty{text-align:center;padding:25px;color:var(--muted);background:#fff;border:1px dashed #cbd7e6;border-radius:14px}
+hr{border:0;border-top:1px solid var(--border);margin:18px 0}
+@media(max-width:900px){
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .header-inner{justify-content:center}
+  nav{justify-content:center}
+}
+@media(max-width:600px){
+  .header-inner,main{padding:11px}
+  .grid,.form-grid,.result-grid,.stats{grid-template-columns:1fr}
+  .full{grid-column:auto}
+  .hero{padding:22px}
+  nav{width:100%;gap:5px}
+  .nav-btn{flex:1;padding:8px 5px;font-size:12px}
+  .currency-box{justify-content:center}
+  .currency-box select{max-width:155px}
+  .card,.tool-panel{padding:15px}
+}
 </style>
 </head>
+
 <body>
-<header><div class="header-inner">
-<div class="brand">MASHRO3 <div class="small">مشروعك يبدأ بخطوة</div></div>
-<nav>
-<button class="nav-btn active" data-page="home" onclick="showPage('home')">الرئيسية</button>
-<button class="nav-btn" data-page="money" onclick="showPage('money')">الأدوات المالية</button>
-<button class="nav-btn" data-page="projects" onclick="showPage('projects')">أفكار المشاريع</button>
-<button class="nav-btn" data-page="plan" onclick="showPage('plan')">خطة مشروعي</button>
-<button class="nav-btn" data-page="saved" onclick="showPage('saved')">المحفوظات</button>
-<button class="nav-btn" data-page="quiz" onclick="showPage('quiz')">اختبر نفسك</button>
-<button class="nav-btn" data-page="dashboard" onclick="showPage('dashboard')">إنجازاتي</button>
-<button class="nav-btn" data-page="about" onclick="showPage('about')">عن الموقع</button>
-</nav>
-<div class="currency-box">
-<label for="globalCurrency">العملة:</label>
-<select id="globalCurrency" onchange="updateCurrency()">
-<option value="OMR">عُماني OMR</option><option value="USD">دولار USD</option>
-<option value="SAR">ريال سعودي SAR</option><option value="AED">درهم إماراتي AED</option>
-<option value="QAR">ريال قطري QAR</option><option value="BHD">دينار بحريني BHD</option>
-<option value="KWD">دينار كويتي KWD</option><option value="EGP">جنيه مصري EGP</option>
-<option value="GBP">جنيه إسترليني GBP</option><option value="EUR">يورو EUR</option>
-<option value="INR">روبية هندية INR</option><option value="CUSTOM">عملة مخصصة</option>
-</select>
-<input id="customCurrency" class="hidden" placeholder="رمز العملة" maxlength="12" oninput="updateCurrency()">
-</div></div></header>
+<header>
+  <div class="header-inner">
+    <div class="brand">MASHRO3<div class="small">مشروعك يبدأ بخطوة</div></div>
+
+    <nav aria-label="التنقل الرئيسي">
+      <button class="nav-btn active" data-page="home" onclick="showPage('home')">الرئيسية</button>
+      <button class="nav-btn" data-page="money" onclick="showPage('money')">الأدوات المالية</button>
+      <button class="nav-btn" data-page="projects" onclick="showPage('projects')">أفكار المشاريع</button>
+      <button class="nav-btn" data-page="plan" onclick="showPage('plan')">خطة مشروعي</button>
+      <button class="nav-btn" data-page="saved" onclick="showPage('saved')">المحفوظات</button>
+      <button class="nav-btn" data-page="quiz" onclick="showPage('quiz')">اختبر نفسك</button>
+      <button class="nav-btn" data-page="dashboard" onclick="showPage('dashboard')">إنجازاتي</button>
+      <button class="nav-btn" data-page="about" onclick="showPage('about')">عن الموقع</button>
+    </nav>
+
+    <div class="currency-box">
+      <label for="globalCurrency">العملة:</label>
+      <select id="globalCurrency" onchange="updateCurrency()">
+        <option value="OMR">عُماني OMR</option>
+        <option value="USD">دولار USD</option>
+        <option value="SAR">ريال سعودي SAR</option>
+        <option value="AED">درهم إماراتي AED</option>
+        <option value="QAR">ريال قطري QAR</option>
+        <option value="BHD">دينار بحريني BHD</option>
+        <option value="KWD">دينار كويتي KWD</option>
+        <option value="EGP">جنيه مصري EGP</option>
+        <option value="GBP">جنيه إسترليني GBP</option>
+        <option value="EUR">يورو EUR</option>
+        <option value="INR">روبية هندية INR</option>
+        <option value="CUSTOM">عملة مخصصة</option>
+      </select>
+      <input id="customCurrency" class="hidden" placeholder="رمز العملة" maxlength="12" oninput="updateCurrency()">
+    </div>
+  </div>
+</header>
 
 <main>
 <section id="home" class="page active">
-<div class="hero">
-<div class="small">من الفكرة إلى التخطيط</div>
-<h1>فكرتك تستحق أن تبدأ.</h1>
-<p>اكتشف أفكارًا متنوعة، واحسب تكاليفك، ونظّم خطتك، واحفظ تقدمك في مكان واحد.</p>
-<div class="actions">
-<button class="primary" onclick="showPage('projects')">اكتشف أفكار المشاريع</button>
-<button onclick="showPage('money')">الأدوات المالية</button>
-<button onclick="showPage('plan')">أنشئ خطة مشروع</button>
-</div>
-<div class="stats">
-<div class="stat"><strong>مجاني</strong><span>أدوات للتخطيط</span></div>
-<div class="stat"><strong>متنوع</strong><span>أفكار وحاسبات واختبارات</span></div>
-<div class="stat"><strong>متجاوب</strong><span>للآيباد والجوال والكمبيوتر</span></div>
-</div></div>
-<div class="grid">
-<div class="card"><div class="card-icon">💡</div><h3>أفكار جديدة</h3><p>اختر مجالًا وميزانية مناسبة لك.</p><button onclick="showPage('projects')">اكتشف الأفكار</button></div>
-<div class="card"><div class="card-icon">🧮</div><h3>احسب أرباحك</h3><p>حلّل التكاليف والمبيعات والربح المتوقع.</p><button onclick="showPage('money');openTool('analyzer')">تحليل مشروع</button></div>
-<div class="card"><div class="card-icon">🏆</div><h3>تابع إنجازاتك</h3><p>راجع الخطط التي أنجزتها والاختبار الذي أكملته.</p><button onclick="showPage('dashboard')">لوحة الإنجازات</button></div>
-</div>
-<div class="notice">النتائج تقديرية ولا تضمن الربح. تحقق من التكاليف والأنظمة المحلية قبل بدء أي مشروع.</div>
+  <div class="hero">
+    <div class="small">من الفكرة إلى التخطيط</div>
+    <h1>فكرتك تستحق أن تبدأ.</h1>
+    <p>اكتشف أفكارًا متنوعة، واحسب تكاليفك، ونظّم خطتك، واحفظ تقدمك في مكان واحد.</p>
+    <div class="actions">
+      <button onclick="showPage('projects')">💡 اكتشف أفكار المشاريع</button>
+      <button onclick="showPage('money')">🧮 الأدوات المالية</button>
+      <button onclick="showPage('plan')">🗺️ أنشئ خطة مشروع</button>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong>مجاني</strong><span>أدوات للتخطيط</span></div>
+      <div class="stat"><strong>متنوع</strong><span>أفكار وحاسبات واختبارات</span></div>
+      <div class="stat"><strong>متجاوب</strong><span>للآيباد والجوال والكمبيوتر</span></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card"><div class="card-icon">💡</div><h3>أفكار المشاريع</h3><p>اختر المجال والميزانية والوقت المناسب لك.</p><button onclick="showPage('projects')">اكتشف الأفكار</button></div>
+    <div class="card"><div class="card-icon">🧮</div><h3>احسب أرباحك</h3><p>حلّل التكاليف والمبيعات والربح المتوقع.</p><button onclick="showPage('money');openTool('analyzer')">تحليل مشروع</button></div>
+    <div class="card"><div class="card-icon">🏆</div><h3>تابع إنجازاتك</h3><p>راجع ما حفظته والخطوات التي أكملتها.</p><button onclick="showPage('dashboard')">لوحة الإنجازات</button></div>
+  </div>
+  <div class="notice warning">تنبيه: النتائج تقديرية ولا تضمن الربح. تحقق من التكاليف والأنظمة المحلية قبل بدء أي مشروع.</div>
 </section>
 
 <section id="money" class="page">
-<h2>🧮 الأدوات المالية</h2><p class="muted">اختر الأداة وأدخل الأرقام ثم احسب النتيجة.</p>
-<div class="grid">
-<div class="card"><h3>📒 الميزانية</h3><p>احسب المتبقي من دخلك.</p><button onclick="openTool('budget')">افتح الحاسبة</button></div>
-<div class="card"><h3>🐷 الادخار</h3><p>احسب المدة للوصول لهدفك.</p><button onclick="openTool('savings')">افتح الحاسبة</button></div>
-<div class="card"><h3>🏷️ الخصم</h3><p>احسب السعر بعد الخصم.</p><button onclick="openTool('discount')">افتح الحاسبة</button></div>
-<div class="card"><h3>⚖️ مقارنة الأسعار</h3><p>قارن تكلفة كل وحدة.</p><button onclick="openTool('comparePrice')">قارن الآن</button></div>
-<div class="card"><h3>📈 تحليل مشروع</h3><p>الإيرادات والتكاليف ونقطة التعادل.</p><button class="primary" onclick="openTool('analyzer')">حلّل مشروعك</button></div>
-<div class="card"><h3>🎯 الربح المستهدف</h3><p>احسب الوحدات المطلوبة.</p><button onclick="openTool('target')">احسب هدفك</button></div>
-<div class="card"><h3>💵 سعر البيع</h3><p>قدّر السعر حسب هامش الربح.</p><button onclick="openTool('salePrice')">احسب السعر</button></div>
-<div class="card"><h3>🔎 مقارنة مشروعين</h3><p>قارن الربح ورأس المال والوقت والمخاطر.</p><button onclick="openTool('compareProjects')">قارن مشروعين</button></div>
-</div><div id="financeToolArea" class="tool-area"></div><div id="projectToolArea" class="tool-area"></div>
+  <h2>🧮 الأدوات المالية</h2>
+  <p class="muted">اختر الأداة، أدخل الأرقام، ثم اضغط زر الحساب.</p>
+  <div class="grid">
+    <div class="card"><h3>📒 الميزانية</h3><p>احسب المتبقي من دخلك.</p><button onclick="openTool('budget')">افتح الحاسبة</button></div>
+    <div class="card"><h3>🐷 الادخار</h3><p>احسب المدة للوصول لهدفك.</p><button onclick="openTool('savings')">افتح الحاسبة</button></div>
+    <div class="card"><h3>🏷️ الخصم</h3><p>احسب السعر بعد الخصم.</p><button onclick="openTool('discount')">افتح الحاسبة</button></div>
+    <div class="card"><h3>⚖️ مقارنة الأسعار</h3><p>قارن تكلفة كل وحدة.</p><button onclick="openTool('comparePrice')">قارن الآن</button></div>
+    <div class="card"><h3>📈 تحليل مشروع</h3><p>الإيرادات والتكاليف ونقطة التعادل.</p><button class="primary" onclick="openTool('analyzer')">حلّل مشروعك</button></div>
+    <div class="card"><h3>🎯 الربح المستهدف</h3><p>احسب الوحدات المطلوبة لتحقيق هدفك.</p><button onclick="openTool('target')">احسب هدفك</button></div>
+    <div class="card"><h3>💵 سعر البيع</h3><p>قدّر السعر حسب هامش الربح.</p><button onclick="openTool('salePrice')">احسب السعر</button></div>
+    <div class="card"><h3>🔎 مقارنة مشروعين</h3><p>قارن رأس المال والربح والوقت والمخاطر.</p><button onclick="openTool('compareProjects')">قارن مشروعين</button></div>
+  </div>
+  <div id="financeToolArea" class="tool-area"></div>
+  <div id="projectToolArea" class="tool-area"></div>
 </section>
 
 <section id="projects" class="page">
-<h2>💡 أفكار المشاريع</h2>
-<p class="muted">حدد اختياراتك واضغط زر الاقتراح. لا تظهر أفكار تلقائيًا عند فتح الموقع.</p>
-<div class="card"><div class="form-grid">
-<div class="field"><label>الميزانية</label><select id="capitalFilter"><option value="any">أي ميزانية</option><option value="zero">بدون رأس مال تقريبًا</option><option value="low">صغيرة</option><option value="medium">متوسطة</option></select></div>
-<div class="field"><label>مكان العمل</label><select id="locationFilter"><option value="any">أي مكان</option><option value="online">عبر الإنترنت</option><option value="home">من المنزل</option><option value="local">في منطقتي</option></select></div>
-<div class="field"><label>الوقت المتاح</label><select id="timeFilter"><option value="any">أي وقت</option><option value="low">قليل</option><option value="medium">متوسط</option><option value="high">كبير</option></select></div>
-<div class="field"><label>المجال</label><select id="fieldFilter"><option value="all">كل المجالات</option><option value="digital">رقمي وتقني</option><option value="creative">تصميم وإبداع</option><option value="education">تعليم</option><option value="trade">تجارة</option><option value="food">أغذية</option><option value="services">خدمات</option><option value="local">محلي</option></select></div>
-</div><div class="actions"><button class="primary" onclick="generateIdeas()">✨ اقترح أفكارًا جديدة</button><button onclick="resetFilters()">إعادة ضبط الفلاتر</button></div></div>
-<div id="ideasOutput" class="tool-area"><div class="notice">اختر الفلاتر واضغط «اقترح أفكارًا جديدة» لعرض الاقتراحات.</div></div>
+  <h2>💡 أفكار المشاريع</h2>
+  <p class="muted">حدد اختياراتك ثم اضغط زر الاقتراح. لن تظهر الأفكار تلقائيًا.</p>
+  <div class="card">
+    <div class="form-grid">
+      <div class="field"><label for="capitalFilter">الميزانية</label><select id="capitalFilter"><option value="any">أي ميزانية</option><option value="zero">بدون رأس مال تقريبًا</option><option value="low">صغيرة</option><option value="medium">متوسطة</option></select></div>
+      <div class="field"><label for="locationFilter">مكان العمل</label><select id="locationFilter"><option value="any">أي مكان</option><option value="online">عبر الإنترنت</option><option value="home">من المنزل</option><option value="local">في منطقتي</option></select></div>
+      <div class="field"><label for="timeFilter">الوقت المتاح</label><select id="timeFilter"><option value="any">أي وقت</option><option value="low">قليل</option><option value="medium">متوسط</option><option value="high">كبير</option></select></div>
+      <div class="field"><label for="fieldFilter">المجال</label><select id="fieldFilter"><option value="all">كل المجالات</option><option value="digital">رقمي وتقني</option><option value="creative">تصميم وإبداع</option><option value="education">تعليم</option><option value="trade">تجارة</option><option value="food">أغذية</option><option value="services">خدمات</option><option value="local">محلي</option></select></div>
+    </div>
+    <div class="actions">
+      <button class="primary" onclick="generateIdeas()">✨ اقترح أفكارًا جديدة</button>
+      <button onclick="resetFilters()">إعادة ضبط الفلاتر</button>
+    </div>
+  </div>
+  <div id="ideasOutput" class="tool-area"><div class="empty">اختر الفلاتر واضغط «اقترح أفكارًا جديدة» لعرض الاقتراحات.</div></div>
 </section>
 
 <section id="plan" class="page">
-<h2>🗺️ خطة مشروعي</h2>
-<p class="muted">اكتب اسم مشروعك، وأنشئ خطة بخطوات قابلة للتعديل والحفظ على هذا الجهاز.</p>
-<div class="card">
-<div class="field"><label for="planName">اسم المشروع</label><input id="planName" placeholder="مثال: متجر منتجات رقمية"></div>
-<div class="field"><label for="newStep">أضف خطوة إلى خطتك</label><input id="newStep" placeholder="مثال: دراسة العملاء المحتملين"></div>
-<div class="actions"><button class="primary" onclick="addStep()">+ إضافة خطوة</button><button onclick="savePlan()">💾 حفظ الخطة</button><button onclick="loadDefaultSteps()">استخدم الخطوات المقترحة</button></div>
-<div id="planSteps"></div>
-<div id="planMessage" class="result">ابدأ بإضافة خطوات أو استخدم الخطوات المقترحة.</div>
-</div>
-<div class="card"><h3>📌 خطوات مقترحة للبدء</h3>
-<p>١. تحديد المشكلة التي يحلها المشروع.</p><p>٢. معرفة العملاء المحتملين.</p><p>٣. البحث عن المنافسين والأسعار.</p><p>٤. حساب تكلفة البداية والمصروفات.</p><p>٥. تجربة الفكرة بشكل صغير وآمن.</p><p>٦. مراجعة النتائج ثم تحسين الفكرة.</p>
-</div>
+  <h2>🗺️ خطة مشروعي</h2>
+  <p class="muted">اكتب اسم المشروع، وأضف خطواتك، وحدد ما أنجزته. تحفظ الخطة في هذا المتصفح.</p>
+  <div class="card">
+    <div class="field"><label for="planName">اسم المشروع</label><input id="planName" placeholder="مثال: متجر منتجات رقمية"></div>
+    <div class="field" style="margin-top:13px"><label for="newStep">أضف خطوة إلى خطتك</label><input id="newStep" placeholder="مثال: دراسة العملاء المحتملين" onkeydown="if(event.key==='Enter'){addStep()}"></div>
+    <div class="actions" style="margin-top:13px">
+      <button class="primary" onclick="addStep()">+ إضافة خطوة</button>
+      <button onclick="savePlan()">💾 حفظ الخطة</button>
+      <button onclick="loadDefaultSteps()">استخدم الخطوات المقترحة</button>
+    </div>
+    <div id="planSteps"></div>
+    <div id="planMessage" class="result">ابدأ بإضافة خطوات أو استخدم الخطوات المقترحة.</div>
+  </div>
+  <div class="card"><h3>📌 تذكّر هذه الخطوات</h3>
+    <p>١. تحديد المشكلة التي يحلها المشروع.</p><p>٢. معرفة العملاء المحتملين.</p>
+    <p>٣. البحث عن المنافسين والأسعار.</p><p>٤. حساب تكلفة البداية والمصروفات.</p>
+    <p>٥. تجربة الفكرة بشكل صغير وآمن.</p><p>٦. مراجعة النتائج ثم تحسين الفكرة.</p>
+  </div>
 </section>
 
 <section id="saved" class="page">
-<h2>💾 المحفوظات</h2><p class="muted">الأفكار والخطط والنتائج التي تحفظها تظهر هنا على الجهاز والمتصفح نفسه.</p>
-<div class="actions"><button onclick="renderSaved()">تحديث المحفوظات</button><button onclick="exportSaved()">تصدير نسخة نصية</button></div>
-<div id="savedOutput"></div>
+  <h2>💾 المحفوظات</h2>
+  <p class="muted">هنا تجد الأفكار والنتائج التي حفظتها على هذا الجهاز والمتصفح.</p>
+  <div class="actions"><button onclick="renderSaved()">تحديث المحفوظات</button><button onclick="exportSaved()">تصدير نسخة احتياطية</button></div>
+  <div id="savedOutput"></div>
 </section>
 
 <section id="quiz" class="page">
-<h2>🧠 اختبر معرفتك بالمشاريع</h2>
-<p class="muted">أجب عن الأسئلة لتحصل على نتيجة وتتعلم من الإجابات.</p>
-<div class="card" id="quizBox"></div>
+  <h2>🧠 اختبر معرفتك بالمشاريع</h2>
+  <p class="muted">أجب عن الأسئلة وتعرّف على أساسيات التخطيط للمشاريع.</p>
+  <div class="card" id="quizBox"></div>
 </section>
 
 <section id="dashboard" class="page">
-<h2>🏆 لوحة الإنجازات</h2><p class="muted">تابع تقدمك في استخدام MASHRO3. الإحصاءات محفوظة محليًا على جهازك.</p>
-<div id="dashboardStats" class="stats"></div><div class="card" id="achievementList"></div>
-<button class="primary" onclick="refreshDashboard()">تحديث الإنجازات</button>
+  <h2>🏆 لوحة الإنجازات</h2>
+  <p class="muted">تابع تقدمك في استخدام MASHRO3.</p>
+  <div id="dashboardStats" class="stats"></div>
+  <div class="card" id="achievementList"></div>
+  <button class="primary" onclick="refreshDashboard()">تحديث الإنجازات</button>
 </section>
 
 <section id="about" class="page">
-<div class="hero"><h1>MASHRO3</h1><p>منصة عربية مجانية تجمع بين أدوات مالية وأفكار مشاريع وخطط تفاعلية تساعدك على التخطيط قبل اتخاذ القرار.</p></div>
-<div class="grid">
-<div class="card"><h3>سهولة الاستخدام</h3><p>واجهة عربية تعمل على الجوال والآيباد والكمبيوتر.</p></div>
-<div class="card"><h3>الحفظ المحلي</h3><p>يتم حفظ الخطط والمفضلة في متصفح جهازك باستخدام التخزين المحلي.</p></div>
-<div class="card"><h3>أفكار متنوعة</h3><p>أفكار ثابتة منتقاة مع فلاتر، وليست توليدًا بالذكاء الاصطناعي.</p></div>
-</div>
-<div class="notice">هذا الموقع أداة تخطيط تعليمية وليس جهة مالية. لا توجد ضمانات للربح. حفظ البيانات محلي؛ وقد تُفقد إذا حذفت بيانات المتصفح أو استخدمت جهازًا آخر.</div>
+  <div class="hero"><h1>MASHRO3</h1><p>منصة عربية مجانية تجمع أدوات مالية وأفكار مشاريع وخططًا تفاعلية تساعدك على التخطيط قبل اتخاذ القرار.</p></div>
+  <div class="grid">
+    <div class="card"><h3>سهولة الاستخدام</h3><p>واجهة عربية تعمل على الجوال والآيباد والكمبيوتر.</p></div>
+    <div class="card"><h3>الحفظ المحلي</h3><p>تُحفظ الخطط والمفضلة في متصفح جهازك باستخدام التخزين المحلي.</p></div>
+    <div class="card"><h3>أفكار متنوعة</h3><p>أفكار ثابتة مع فلاتر لتسهيل اكتشاف المناسب لك، وليست توليدًا بالذكاء الاصطناعي.</p></div>
+  </div>
+  <div class="notice warning">هذا الموقع أداة تخطيط تعليمية وليس جهة مالية. لا توجد ضمانات للربح. حفظ البيانات محلي؛ وقد تُفقد إذا حذفت بيانات المتصفح أو استخدمت جهازًا آخر.</div>
 </section>
 </main>
+
 <footer>MASHRO3 — خطّط لفكرتك بوضوح. النتائج تقديرية وليست نصيحة مالية.</footer>
 
 <script>
-const currencySymbols={OMR:"ر.ع",USD:"$",SAR:"ر.س",AED:"د.إ",QAR:"ر.ق",BHD:"د.ب",KWD:"د.ك",EGP:"ج.م",GBP:"£",EUR:"€",INR:"₹"};
-function currency(){let c=document.getElementById("globalCurrency").value;return c==="CUSTOM"?(document.getElementById("customCurrency").value.trim()||"عملة"):(currencySymbols[c]||c)}
-function money(n){return Number.isFinite(Number(n))?currency()+" "+Number(n).toLocaleString("en-US",{maximumFractionDigits:2}):"—"}
-function updateCurrency(){document.getElementById("customCurrency").classList.toggle("hidden",document.getElementById("globalCurrency").value!=="CUSTOM")}
-function num(id){let e=document.getElementById(id);return e?Number(e.value):0}
-function val(id){let e=document.getElementById(id);return e?e.value.trim():""}
-function field(id,label,type="number",value="0",min="0",step="any"){return `<div class="field"><label for="${id}">${label}</label><input id="${id}" type="${type}" value="${value}" min="${min}" step="${step}"></div>`}
-function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-function showPage(id){document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id===id));document.querySelectorAll(".nav-btn").forEach(b=>b.classList.toggle("active",b.dataset.page===id));window.scrollTo({top:0,behavior:"smooth"});if(id==="saved")renderSaved();if(id==="dashboard")refreshDashboard();if(id==="plan")renderPlan();if(id==="quiz")renderQuiz()}
-function putTool(html,where){let a=document.getElementById(where);a.innerHTML=html;a.scrollIntoView({behavior:"smooth",block:"start"})}
-function output(html){let e=document.getElementById("toolResult");if(e)e.innerHTML='<div class="result" aria-live="polite">'+html+'</div>'}
-function openTool(type){
-const finance=["budget","savings","discount","comparePrice"];let where=finance.includes(type)?"financeToolArea":"projectToolArea";
-if(type==="budget")putTool(`<div class="tool-panel"><h2>📒 حاسبة الميزانية</h2><div class="form-grid">${field("income","الدخل الشهري")}${field("housing","السكن والفواتير")}${field("food","الطعام")}${field("transport","المواصلات")}${field("shopping","التسوق")}${field("other","مصروفات أخرى")}</div><button class="primary" onclick="calcBudget()">احسب الميزانية</button><div id="toolResult"></div></div>`,where);
-else if(type==="savings")putTool(`<div class="tool-panel"><h2>🐷 حاسبة الادخار</h2><div class="form-grid">${field("goal","المبلغ المستهدف")}${field("current","المبلغ المدخر")}${field("monthly","الادخار الشهري")}</div><button class="primary" onclick="calcSavings()">احسب المدة</button><div id="toolResult"></div></div>`,where);
-else if(type==="discount")putTool(`<div class="tool-panel"><h2>🏷️ حاسبة الخصم</h2><div class="form-grid">${field("original","السعر الأصلي")}${field("discountRate","نسبة الخصم %","number","10","0","0.1")}</div><button class="primary" onclick="calcDiscount()">احسب السعر</button><div id="toolResult"></div></div>`,where);
-else if(type==="comparePrice")putTool(`<div class="tool-panel"><h2>⚖️ مقارنة الأسعار</h2><div class="form-grid">${field("priceA","سعر المنتج الأول")}${field("qtyA","كمية المنتج الأول","number","1","0.0001")}${field("priceB","سعر المنتج الثاني")}${field("qtyB","كمية المنتج الثاني","number","1","0.0001")}</div><button class="primary" onclick="calcPriceCompare()">قارن</button><div id="toolResult"></div></div>`,where);
-else if(type==="analyzer")putTool(`<div class="tool-panel"><h2>📈 تحليل مشروع</h2><div class="form-grid">${field("projectName","اسم المشروع","text","مشروعي")}${field("capital","رأس المال")}${field("unitCost","تكلفة الوحدة")}${field("unitPrice","سعر بيع الوحدة")}${field("monthlySales","الوحدات المباعة شهريًا","number","100","0","1")}${field("fixedCosts","المصروفات الثابتة الشهرية")}</div><button class="primary" onclick="calcAnalyzer()">حلّل المشروع</button><div id="toolResult"></div></div>`,where);
-else if(type==="target")putTool(`<div class="tool-panel"><h2>🎯 الربح المستهدف</h2><div class="form-grid">${field("tCost","تكلفة الوحدة")}${field("tPrice","سعر بيع الوحدة")}${field("tFixed","المصروفات الثابتة")}${field("tGoal","الربح المستهدف")}</div><button class="primary" onclick="calcTarget()">احسب الوحدات</button><div id="toolResult"></div></div>`,where);
-else if(type==="salePrice")putTool(`<div class="tool-panel"><h2>💵 سعر البيع</h2><div class="form-grid">${field("sCost","تكلفة الوحدة")}${field("sMargin","هامش الربح %","number","30","0","0.1")}</div><button class="primary" onclick="calcSalePrice()">احسب السعر</button><div id="toolResult"></div></div>`,where);
-else if(type==="compareProjects")putTool(`<div class="tool-panel"><h2>🔎 مقارنة مشروعين</h2><div class="form-grid"><div class="field"><label>اسم المشروع الأول</label><input id="pNameA" value="المشروع الأول"></div>${field("pCapitalA","رأس مال المشروع الأول")}${field("pProfitA","ربح المشروع الأول شهريًا")}${field("pTimeA","ساعات العمل أسبوعيًا","number","5","0","1")}<div class="field"><label>مخاطر المشروع الأول</label><select id="pRiskA"><option value="1">منخفضة</option><option value="2">متوسطة</option><option value="3">مرتفعة</option></select></div><div class="field"><label>اسم المشروع الثاني</label><input id="pNameB" value="المشروع الثاني"></div>${field("pCapitalB","رأس مال المشروع الثاني")}${field("pProfitB","ربح المشروع الثاني شهريًا")}${field("pTimeB","ساعات العمل أسبوعيًا","number","5","0","1")}<div class="field"><label>مخاطر المشروع الثاني</label><select id="pRiskB"><option value="1">منخفضة</option><option value="2">متوسطة</option><option value="3">مرتفعة</option></select></div></div><button class="primary" onclick="calcCompareProjects()">قارن المشروعين</button><div id="toolResult"></div></div>`,where)
+"use strict";
+
+const currencySymbols={
+  OMR:"ر.ع",USD:"$",SAR:"ر.س",AED:"د.إ",QAR:"ر.ق",
+  BHD:"د.ب",KWD:"د.ك",EGP:"ج.م",GBP:"£",EUR:"€",INR:"₹"
+};
+const KEY="mashroo3_v3_data";
+
+function currency(){
+  const c=document.getElementById("globalCurrency").value;
+  return c==="CUSTOM"?(document.getElementById("customCurrency").value.trim()||"عملة"):(currencySymbols[c]||c);
 }
-function calcBudget(){let inc=num("income"),exp=["housing","food","transport","shopping","other"].reduce((s,x)=>s+num(x),0),bal=inc-exp;let r=`<p>إجمالي المصروفات: <strong>${money(exp)}</strong></p><p>المتبقي: <strong>${money(bal)}</strong></p><p>${bal>=0?"مصروفاتك ضمن دخلك حسب الأرقام.":"مصروفاتك تتجاوز دخلك."}</p>`;output(r);saveResult("نتيجة الميزانية",`المصروفات ${money(exp)}، المتبقي ${money(bal)}`)}
-function calcSavings(){let rem=num("goal")-num("current"),m=num("monthly");if(rem<=0){output("وصلت إلى هدفك حسب الأرقام!");return}if(m<=0){output("أدخل ادخارًا شهريًا أكبر من صفر.");return}let r=`المبلغ المتبقي: <strong>${money(rem)}</strong><p>المدة التقريبية: <strong>${Math.ceil(rem/m)} شهرًا</strong></p>`;output(r);saveResult("نتيجة الادخار",`المتبقي ${money(rem)} والمدة ${Math.ceil(rem/m)} شهرًا`)}
-function calcDiscount(){let p=num("original"),d=num("discountRate");if(p<0||d<0||d>100){output("أدخل سعرًا غير سالب وخصمًا من 0 إلى 100.");return}let final=p*(1-d/100),saved=p-final;output(`السعر بعد الخصم: <strong>${money(final)}</strong><p>قيمة التوفير: <strong>${money(saved)}</strong></p>`);saveResult("نتيجة الخصم",`السعر النهائي ${money(final)}، التوفير ${money(saved)}`)}
-function calcPriceCompare(){let pa=num("priceA"),qa=num("qtyA"),pb=num("priceB"),qb=num("qtyB");if(pa<0||pb<0||qa<=0||qb<=0){output("تحقق من الأسعار والكميات.");return}let a=pa/qa,b=pb/qb;output(`سعر وحدة المنتج الأول: <strong>${money(a)}</strong><p>سعر وحدة المنتج الثاني: <strong>${money(b)}</strong></p><p>${a===b?"الخياران متساويان.":a<b?"المنتج الأول أوفر.":"المنتج الثاني أوفر."}</p>`)}
-function calcAnalyzer(){let n=val("projectName")||"مشروعي",c=num("capital"),uc=num("unitCost"),p=num("unitPrice"),s=num("monthlySales"),f=num("fixedCosts");if([c,uc,p,s,f].some(x=>x<0)){output("لا تستخدم أرقامًا سالبة.");return}let rev=p*s,profit=rev-uc*s-f,be=p>uc?Math.ceil(f/(p-uc)):null;let r=`<h3>${escapeHTML(n)}</h3><div class="result-grid"><div class="result-item"><span>الإيرادات</span><strong>${money(rev)}</strong></div><div class="result-item"><span>التكاليف المقدرة</span><strong>${money(uc*s+f)}</strong></div><div class="result-item"><span>الربح/الخسارة</span><strong>${money(profit)}</strong></div><div class="result-item"><span>هامش الربح</span><strong>${rev?(profit/rev*100).toFixed(1)+"%":"غير متاح"}</strong></div><div class="result-item"><span>نقطة التعادل بالوحدات</span><strong>${be===null?"غير متاحة":be}</strong></div><div class="result-item"><span>رأس المال</span><strong>${money(c)}</strong></div></div><p>هذه تقديرات تعتمد على الأرقام المدخلة ولا تشمل التكاليف غير المسجلة.</p><button onclick="saveResult('تحليل '+${JSON.stringify(n)},${JSON.stringify("الإيرادات "+money(0))}.replace(money(0),money("+rev+"))+'، الربح '+money("+profit+"))">💾 حفظ النتيجة</button>`;output(r);saveResult("تحليل "+n,`الإيرادات ${money(rev)}، الربح التقديري ${money(profit)}`)}
-function calcTarget(){let c=num("tCost"),p=num("tPrice"),f=num("tFixed"),g=num("tGoal");if([c,p,f,g].some(x=>x<0)||p<=c){output("أدخل أرقامًا غير سالبة واجعل سعر البيع أكبر من تكلفة الوحدة.");return}output(`عدد الوحدات المطلوبة: <strong>${Math.ceil((f+g)/(p-c))} وحدة</strong>`)}
-function calcSalePrice(){let c=num("sCost"),m=num("sMargin");if(c<0||m<0||m>=100){output("الهامش يجب أن يكون من 0 إلى أقل من 100%.");return}let p=c/(1-m/100);output(`سعر البيع المقترح: <strong>${money(p)}</strong><p>الربح لكل وحدة: ${money(p-c)}</p>`)}
+function money(n){
+  return Number.isFinite(Number(n))?currency()+" "+Number(n).toLocaleString("en-US",{maximumFractionDigits:2}):"—";
+}
+function updateCurrency(){
+  document.getElementById("customCurrency").classList.toggle("hidden",document.getElementById("globalCurrency").value!=="CUSTOM");
+}
+function num(id){const e=document.getElementById(id);return e?Number(e.value):0}
+function val(id){const e=document.getElementById(id);return e?e.value.trim():""}
+function field(id,label,type="number",value="0",min="0",step="any"){
+  return `<div class="field"><label for="${id}">${label}</label><input id="${id}" type="${type}" value="${value}" min="${min}" step="${step}"></div>`;
+}
+function escapeHTML(s){
+  return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+function showPage(id){
+  document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id===id));
+  document.querySelectorAll(".nav-btn").forEach(b=>b.classList.toggle("active",b.dataset.page===id));
+  window.scrollTo({top:0,behavior:"smooth"});
+  if(id==="saved")renderSaved();
+  if(id==="dashboard")refreshDashboard();
+  if(id==="plan")renderPlan();
+  if(id==="quiz")renderQuiz();
+}
+function putTool(html,where){
+  const a=document.getElementById(where);
+  a.innerHTML=html;
+  a.scrollIntoView({behavior:"smooth",block:"start"});
+}
+function output(html,title="نتيجة الحساب",content=""){
+  const e=document.getElementById("toolResult");
+  if(!e)return;
+  e.innerHTML=`<div class="result" aria-live="polite">${html}
+    <hr><button class="primary" onclick="saveResult(${JSON.stringify(title)},${JSON.stringify(content||title)})">💾 حفظ النتيجة</button>
+  </div>`;
+}
+function openTool(type){
+  const finance=["budget","savings","discount","comparePrice"];
+  const where=finance.includes(type)?"financeToolArea":"projectToolArea";
+  if(type==="budget")putTool(`<div class="tool-panel"><h2>📒 حاسبة الميزانية</h2><div class="form-grid">${field("income","الدخل الشهري")}${field("housing","السكن والفواتير")}${field("food","الطعام")}${field("transport","المواصلات")}${field("shopping","التسوق")}${field("other","مصروفات أخرى")}</div><button class="primary" onclick="calcBudget()">احسب الميزانية</button><div id="toolResult"></div></div>`,where);
+  else if(type==="savings")putTool(`<div class="tool-panel"><h2>🐷 حاسبة الادخار</h2><div class="form-grid">${field("goal","المبلغ المستهدف")}${field("current","المبلغ المدخر")}${field("monthly","الادخار الشهري")}</div><button class="primary" onclick="calcSavings()">احسب المدة</button><div id="toolResult"></div></div>`,where);
+  else if(type==="discount")putTool(`<div class="tool-panel"><h2>🏷️ حاسبة الخصم</h2><div class="form-grid">${field("original","السعر الأصلي")}${field("discountRate","نسبة الخصم %","number","10","0","0.1")}</div><button class="primary" onclick="calcDiscount()">احسب السعر</button><div id="toolResult"></div></div>`,where);
+  else if(type==="comparePrice")putTool(`<div class="tool-panel"><h2>⚖️ مقارنة الأسعار</h2><div class="form-grid">${field("priceA","سعر المنتج الأول")}${field("qtyA","كمية المنتج الأول","number","1","0.0001")}${field("priceB","سعر المنتج الثاني")}${field("qtyB","كمية المنتج الثاني","number","1","0.0001")}</div><button class="primary" onclick="calcPriceCompare()">قارن</button><div id="toolResult"></div></div>`,where);
+  else if(type==="analyzer")putTool(`<div class="tool-panel"><h2>📈 تحليل مشروع</h2><div class="form-grid">${field("projectName","اسم المشروع","text","مشروعي")}${field("capital","رأس المال")}${field("unitCost","تكلفة الوحدة")}${field("unitPrice","سعر بيع الوحدة")}${field("monthlySales","الوحدات المباعة شهريًا","number","100","0","1")}${field("fixedCosts","المصروفات الثابتة الشهرية")}</div><button class="primary" onclick="calcAnalyzer()">حلّل المشروع</button><div id="toolResult"></div></div>`,where);
+  else if(type==="target")putTool(`<div class="tool-panel"><h2>🎯 الربح المستهدف</h2><div class="form-grid">${field("tCost","تكلفة الوحدة")}${field("tPrice","سعر بيع الوحدة")}${field("tFixed","المصروفات الثابتة")}${field("tGoal","الربح المستهدف")}</div><button class="primary" onclick="calcTarget()">احسب الوحدات</button><div id="toolResult"></div></div>`,where);
+  else if(type==="salePrice")putTool(`<div class="tool-panel"><h2>💵 سعر البيع</h2><div class="form-grid">${field("sCost","تكلفة الوحدة")}${field("sMargin","هامش الربح %","number","30","0","0.1")}</div><button class="primary" onclick="calcSalePrice()">احسب السعر</button><div id="toolResult"></div></div>`,where);
+  else if(type==="compareProjects")putTool(`<div class="tool-panel"><h2>🔎 مقارنة مشروعين</h2><div class="form-grid">
+    <div class="field"><label for="pNameA">اسم المشروع الأول</label><input id="pNameA" value="المشروع الأول"></div>
+    ${field("pCapitalA","رأس مال المشروع الأول")}${field("pProfitA","ربح المشروع الأول شهريًا")}${field("pTimeA","ساعات العمل أسبوعيًا","number","5","0","1")}
+    <div class="field"><label for="pRiskA">مخاطر المشروع الأول</label><select id="pRiskA"><option value="1">منخفضة</option><option value="2">متوسطة</option><option value="3">مرتفعة</option></select></div>
+    <div class="field"><label for="pNameB">اسم المشروع الثاني</label><input id="pNameB" value="المشروع الثاني"></div>
+    ${field("pCapitalB","رأس مال المشروع الثاني")}${field("pProfitB","ربح المشروع الثاني شهريًا")}${field("pTimeB","ساعات العمل أسبوعيًا","number","5","0","1")}
+    <div class="field"><label for="pRiskB">مخاطر المشروع الثاني</label><select id="pRiskB"><option value="1">منخفضة</option><option value="2">متوسطة</option><option value="3">مرتفعة</option></select></div>
+  </div><button class="primary" onclick="calcCompareProjects()">قارن المشروعين</button><div id="toolResult"></div></div>`,where);
+}
+function calcBudget(){
+  const inc=num("income"),exp=["housing","food","transport","shopping","other"].reduce((s,x)=>s+num(x),0),bal=inc-exp;
+  output(`<p>إجمالي المصروفات: <strong>${money(exp)}</strong></p><p>المتبقي: <strong>${money(bal)}</strong></p><p>${bal>=0?"مصروفاتك ضمن دخلك حسب الأرقام.":"مصروفاتك تتجاوز دخلك."}</p>`,"نتيجة الميزانية",`الدخل ${money(inc)}، المصروفات ${money(exp)}، المتبقي ${money(bal)}`);
+}
+function calcSavings(){
+  const rem=num("goal")-num("current"),m=num("monthly");
+  if(rem<=0){output("وصلت إلى هدفك حسب الأرقام!","نتيجة الادخار","وصلت إلى هدف الادخار.");return}
+  if(m<=0){output("أدخل ادخارًا شهريًا أكبر من صفر.");return}
+  const months=Math.ceil(rem/m);
+  output(`المبلغ المتبقي: <strong>${money(rem)}</strong><p>المدة التقريبية: <strong>${months} شهرًا</strong></p>`,"نتيجة الادخار",`المتبقي ${money(rem)} والمدة ${months} شهرًا`);
+}
+function calcDiscount(){
+  const p=num("original"),d=num("discountRate");
+  if(p<0||d<0||d>100){output("أدخل سعرًا غير سالب وخصمًا من 0 إلى 100.");return}
+  const final=p*(1-d/100),saved=p-final;
+  output(`السعر بعد الخصم: <strong>${money(final)}</strong><p>قيمة التوفير: <strong>${money(saved)}</strong></p>`,"نتيجة الخصم",`السعر النهائي ${money(final)}، التوفير ${money(saved)}`);
+}
+function calcPriceCompare(){
+  const pa=num("priceA"),qa=num("qtyA"),pb=num("priceB"),qb=num("qtyB");
+  if(pa<0||pb<0||qa<=0||qb<=0){output("تحقق من الأسعار والكميات.");return}
+  const a=pa/qa,b=pb/qb;
+  const conclusion=a===b?"الخياران متساويان.":a<b?"المنتج الأول أوفر.":"المنتج الثاني أوفر.";
+  output(`سعر وحدة المنتج الأول: <strong>${money(a)}</strong><p>سعر وحدة المنتج الثاني: <strong>${money(b)}</strong></p><p>${conclusion}</p>`,"مقارنة الأسعار",`سعر وحدة الأول ${money(a)}، الثاني ${money(b)}. ${conclusion}`);
+}
+function calcAnalyzer(){
+  const n=val("projectName")||"مشروعي",c=num("capital"),uc=num("unitCost"),p=num("unitPrice"),s=num("monthlySales"),f=num("fixedCosts");
+  if([c,uc,p,s,f].some(x=>x<0)){output("لا تستخدم أرقامًا سالبة.");return}
+  const rev=p*s,profit=rev-uc*s-f,be=p>uc?Math.ceil(f/(p-uc)):null;
+  const content=`المشروع: ${n}. الإيرادات ${money(rev)}، التكاليف ${money(uc*s+f)}، الربح التقديري ${money(profit)}، نقطة التعادل ${be===null?"غير متاحة":be+" وحدة"}.`;
+  output(`<h3>${escapeHTML(n)}</h3><div class="result-grid">
+    <div class="result-item"><span>الإيرادات</span><strong>${money(rev)}</strong></div>
+    <div class="result-item"><span>التكاليف المقدرة</span><strong>${money(uc*s+f)}</strong></div>
+    <div class="result-item"><span>الربح/الخسارة</span><strong>${money(profit)}</strong></div>
+    <div class="result-item"><span>هامش الربح</span><strong>${rev?(profit/rev*100).toFixed(1)+"%":"غير متاح"}</strong></div>
+    <div class="result-item"><span>نقطة التعادل بالوحدات</span><strong>${be===null?"غير متاحة":be}</strong></div>
+    <div class="result-item"><span>رأس المال</span><strong>${money(c)}</strong></div>
+  </div><p>هذه تقديرات تعتمد على الأرقام المدخلة ولا تشمل التكاليف غير المسجلة.</p>`,"تحليل "+n,content);
+}
+function calcTarget(){
+  const c=num("tCost"),p=num("tPrice"),f=num("tFixed"),g=num("tGoal");
+  if([c,p,f,g].some(x=>x<0)||p<=c){output("أدخل أرقامًا غير سالبة واجعل سعر البيع أكبر من تكلفة الوحدة.");return}
+  const units=Math.ceil((f+g)/(p-c));
+  output(`عدد الوحدات المطلوبة: <strong>${units} وحدة</strong>`,"الربح المستهدف",`تحتاج إلى بيع ${units} وحدة تقريبًا لتحقيق الهدف المدخل.`);
+}
+function calcSalePrice(){
+  const c=num("sCost"),m=num("sMargin");
+  if(c<0||m<0||m>=100){output("الهامش يجب أن يكون من 0 إلى أقل من 100%.");return}
+  const p=c/(1-m/100);
+  output(`سعر البيع المقترح: <strong>${money(p)}</strong><p>الربح لكل وحدة: ${money(p-c)}</p>`,"سعر البيع",`السعر المقترح ${money(p)}، الربح لكل وحدة ${money(p-c)}`);
+}
 function riskLabel(v){return v==1?"منخفضة":v==2?"متوسطة":"مرتفعة"}
-function calcCompareProjects(){let a={n:val("pNameA"),c:num("pCapitalA"),p:num("pProfitA"),t:num("pTimeA"),r:num("pRiskA")},b={n:val("pNameB"),c:num("pCapitalB"),p:num("pProfitB"),t:num("pTimeB"),r:num("pRiskB")};if([a.c,a.p,a.t,b.c,b.p,b.t].some(x=>x<0)){output("لا تستخدم أرقامًا سالبة.");return}output(`<div class="result-grid"><div class="result-item"><strong>${escapeHTML(a.n)}</strong><p>الربح: ${money(a.p)}</p><p>رأس المال: ${money(a.c)}</p><p>الوقت: ${a.t} ساعة أسبوعيًا</p><p>المخاطر: ${riskLabel(a.r)}</p></div><div class="result-item"><strong>${escapeHTML(b.n)}</strong><p>الربح: ${money(b.p)}</p><p>رأس المال: ${money(b.c)}</p><p>الوقت: ${b.t} ساعة أسبوعيًا</p><p>المخاطر: ${riskLabel(b.r)}</p></div></div><p>${a.p===b.p?"الربح متساوٍ.":a.p>b.p?escapeHTML(a.n)+" ربحه المدخل أعلى.":escapeHTML(b.n)+" ربحه المدخل أعلى."}</p><p class="small">قارن الطلب والمخاطر والخبرة المطلوبة أيضًا.</p>`)}
-const projectIdeas=[
+function calcCompareProjects(){
+  const a={n:val("pNameA")||"المشروع الأول",c:num("pCapitalA"),p:num("pProfitA"),t:num("pTimeA"),r:num("pRiskA")};
+  const b={n:val("pNameB")||"المشروع الثاني",c:num("pCapitalB"),p:num("pProfitB"),t:num("pTimeB"),r:num("pRiskB")};
+  if([a.c,a.p,a.t,b.c,b.p,b.t].some(x=>x<0)){output("لا تستخدم أرقامًا سالبة.");return}
+  const conclusion=a.p===b.p?"الربح المدخل متساوٍ.":a.p>b.p?a.n+" ربحه المدخل أعلى.":b.n+" ربحه المدخل أعلى.";
+  const content=`${a.n}: ربح ${money(a.p)}، رأس مال ${money(a.c)}، وقت ${a.t} ساعة أسبوعيًا، مخاطر ${riskLabel(a.r)}. ${b.n}: ربح ${money(b.p)}، رأس مال ${money(b.c)}، وقت ${b.t} ساعة أسبوعيًا، مخاطر ${riskLabel(b.r)}. ${conclusion}`;
+  output(`<div class="result-grid">
+    <div class="result-item"><strong>${escapeHTML(a.n)}</strong><p>الربح: ${money(a.p)}</p><p>رأس المال: ${money(a.c)}</p><p>الوقت: ${a.t} ساعة أسبوعيًا</p><p>المخاطر: ${riskLabel(a.r)}</p></div>
+    <div class="result-item"><strong>${escapeHTML(b.n)}</strong><p>الربح: ${money(b.p)}</p><p>رأس المال: ${money(b.c)}</p><p>الوقت: ${b.t} ساعة أسبوعيًا</p><p>المخاطر: ${riskLabel(b.r)}</p></div>
+  </div><p>${escapeHTML(conclusion)}</p><p class="small">قارن الطلب والخبرة المطلوبة والمخاطر أيضًا.</p>`,"مقارنة مشروعين",content);
+}
+
+const rawIdeas=[
 ["تصميم منشورات للمشاريع","تصميم منشورات إعلانية للمحلات الصغيرة.","المتاجر والمشاريع الصغيرة","رسوم لكل تصميم","low","online","medium","creative","low"],
 ["قوالب جداول تنظيمية","جداول لتنظيم الدراسة والعادات والميزانية.","الطلاب والأسر","بيع قوالب رقمية","zero","online","low","digital","low"],
 ["دروس تقوية","شرح مادة تتقنها للطلاب الأصغر بموافقة ولي الأمر.","الطلاب","أجر لكل جلسة","zero","home","medium","education","low"],
@@ -251,28 +472,150 @@ const projectIdeas=[
 ["تنسيق صور المنتجات","توحيد أبعاد الصور والخلفيات.","أصحاب المتاجر","رسوم لكل مجموعة","zero","online","medium","digital","medium"],
 ["مساعدة تقنية أساسية","شرح استخدام التطبيقات الشائعة للمبتدئين.","الأفراد","أجر للجلسة","zero","local","medium","local","low"],
 ["زراعة شتلات","زراعة شتلات مناسبة للمناخ المحلي.","محبو الزراعة","بيع الشتلات","medium","home","high","trade","medium"]
-].map(a=>({n:a[0],d:a[1],c:a[2],p:a[3],k:a[4],l:a[5],time:a[6],f:a[7],cost:a[4]==="zero"?"منخفضة جدًا":a[4]==="low"?"منخفضة":"متوسطة",risk:a[8]==="high"?"مرتفع":a[8]==="medium"?"متوسط":"منخفض"}));
-function generateIdeas(){let cap=val("capitalFilter"),loc=val("locationFilter"),t=val("timeFilter"),f=val("fieldFilter");let a=projectIdeas.filter(x=>(cap==="any"||x.k===cap)&&(loc==="any"||x.l===loc)&&(t==="any"||x.time===t)&&(f==="all"||x.f===f));if(!a.length){document.getElementById("ideasOutput").innerHTML='<div class="result">لا توجد أفكار مطابقة. جرّب توسيع الفلاتر.</div>';return}a.sort(()=>Math.random()-.5);a=a.slice(0,6);document.getElementById("ideasOutput").innerHTML='<h2>اقتراحات مناسبة لك</h2>'+a.map((x,i)=>`<article class="idea"><h3>${i+1}. ${escapeHTML(x.n)}</h3><p>${escapeHTML(x.d)}</p><p><strong>العملاء:</strong> ${escapeHTML(x.c)}</p><p><strong>طريقة الربح:</strong> ${escapeHTML(x.p)}</p><p><strong>تكلفة البداية:</strong> ${x.cost}</p><p><span class="tag">الوقت: ${timeLabel(x.time)}</span><span class="tag">المخاطر: ${x.risk}</span><span class="tag">${fieldLabel(x.f)}</span></p><p class="small">اختبر الطلب واحسب التكاليف قبل البدء.</p><button class="primary" onclick="saveIdea(${JSON.stringify(x.n)})">💾 احفظ الفكرة</button><button onclick="makePlanFromIdea(${JSON.stringify(x.n)})">أنشئ خطة لها</button></article>`).join("")}
-function resetFilters(){["capitalFilter","locationFilter","timeFilter","fieldFilter"].forEach((id,i)=>document.getElementById(id).value=["any","any","any","all"][i]);document.getElementById("ideasOutput").innerHTML='<div class="notice">تمت إعادة ضبط الفلاتر. اضغط زر الاقتراحات لعرض أفكار جديدة.</div>'}
+];
+const projectIdeas=rawIdeas.map(a=>({
+  n:a[0],d:a[1],c:a[2],p:a[3],k:a[4],l:a[5],time:a[6],f:a[7],
+  cost:a[4]==="zero"?"منخفضة جدًا":a[4]==="low"?"منخفضة":"متوسطة",
+  risk:a[8]==="high"?"مرتفع":a[8]==="medium"?"متوسط":"منخفض"
+}));
 function timeLabel(t){return t==="low"?"قليل":t==="medium"?"متوسط":"كبير"}
-function fieldLabel(f){return ({digital:"رقمي وتقني",creative:"تصميم وإبداع",education:"تعليم",trade:"تجارة",food:"أغذية",services:"خدمات",local:"محلي"})[f]||f}
+function fieldLabel(f){
+  return ({digital:"رقمي وتقني",creative:"تصميم وإبداع",education:"تعليم",trade:"تجارة",food:"أغذية",services:"خدمات",local:"محلي"})[f]||f;
+}
+function generateIdeas(){
+  const cap=val("capitalFilter"),loc=val("locationFilter"),t=val("timeFilter"),f=val("fieldFilter");
+  let a=projectIdeas.filter(x=>(cap==="any"||x.k===cap)&&(loc==="any"||x.l===loc)&&(t==="any"||x.time===t)&&(f==="all"||x.f===f));
+  const el=document.getElementById("ideasOutput");
+  if(!a.length){el.innerHTML='<div class="result">لا توجد أفكار مطابقة. جرّب توسيع الفلاتر.</div>';return}
+  a.sort(()=>Math.random()-.5);
+  a=a.slice(0,6);
+  el.innerHTML='<h2>اقتراحات مناسبة لك</h2>'+a.map((x,i)=>`<article class="idea">
+    <h3>${i+1}. ${escapeHTML(x.n)}</h3><p>${escapeHTML(x.d)}</p>
+    <p><strong>العملاء:</strong> ${escapeHTML(x.c)}</p>
+    <p><strong>طريقة الربح:</strong> ${escapeHTML(x.p)}</p>
+    <p><strong>تكلفة البداية:</strong> ${x.cost}</p>
+    <p><span class="tag">الوقت: ${timeLabel(x.time)}</span><span class="tag">المخاطر: ${x.risk}</span><span class="tag">${fieldLabel(x.f)}</span></p>
+    <p class="small">اختبر الطلب واحسب التكاليف قبل البدء.</p>
+    <div class="actions"><button class="primary" onclick="saveIdea(${JSON.stringify(x.n)})">💾 احفظ الفكرة</button><button onclick="makePlanFromIdea(${JSON.stringify(x.n)})">أنشئ خطة لها</button></div>
+  </article>`).join("");
+}
+function resetFilters(){
+  ["capitalFilter","locationFilter","timeFilter","fieldFilter"].forEach((id,i)=>document.getElementById(id).value=["any","any","any","all"][i]);
+  document.getElementById("ideasOutput").innerHTML='<div class="notice">تمت إعادة ضبط الفلاتر. اضغط زر الاقتراحات لعرض أفكار جديدة.</div>';
+}
 
-const KEY="mashroo3_v2_data";
-function data(){try{return JSON.parse(localStorage.getItem(KEY))||{saved:[],steps:[],planName:"",quizBest:0,quizRuns:0,completed:0}}catch(e){return {saved:[],steps:[],planName:"",quizBest:0,quizRuns:0,completed:0}}}
-function putData(d){try{localStorage.setItem(KEY,JSON.stringify(d))}catch(e){alert("تعذر الحفظ. قد تكون مساحة التخزين ممتلئة أو غير متاحة.")}}
-function saveItem(type,title,content){let d=data();if(d.saved.some(x=>x.type===type&&x.title===title&&x.content===content)){alert("هذا العنصر محفوظ بالفعل.");return}d.saved.unshift({type,title,content,date:new Date().toLocaleDateString("ar")});putData(d);alert("تم الحفظ على هذا الجهاز.");refreshDashboard()}
-function saveIdea(n){let x=projectIdeas.find(x=>x.n===n);saveItem("فكرة",n,x?x.d+" | العملاء: "+x.c+" | الربح: "+x.p:"فكرة مشروع")}
+function data(){
+  const fallback={saved:[],steps:[],planName:"",quizBest:0,quizRuns:0};
+  try{
+    const d=JSON.parse(localStorage.getItem(KEY)||"null");
+    if(!d||typeof d!=="object")return fallback;
+    return {...fallback,...d,saved:Array.isArray(d.saved)?d.saved:[],steps:Array.isArray(d.steps)?d.steps:[]};
+  }catch(e){return fallback}
+}
+function putData(d){
+  try{localStorage.setItem(KEY,JSON.stringify(d));return true}
+  catch(e){alert("تعذر الحفظ. قد تكون مساحة التخزين ممتلئة أو غير متاحة.");return false}
+}
+function saveItem(type,title,content){
+  const d=data();
+  if(d.saved.some(x=>x.type===type&&x.title===title&&x.content===content)){
+    alert("هذا العنصر محفوظ بالفعل.");return;
+  }
+  d.saved.unshift({type,title,content,date:new Date().toLocaleDateString("ar")});
+  if(putData(d)){alert("تم الحفظ على هذا الجهاز.");refreshDashboard()}
+}
+function saveIdea(n){
+  const x=projectIdeas.find(y=>y.n===n);
+  saveItem("فكرة",n,x?`${x.d} | العملاء: ${x.c} | طريقة الربح: ${x.p} | تكلفة البداية: ${x.cost} | الوقت: ${timeLabel(x.time)} | المخاطر: ${x.risk}`:"فكرة مشروع");
+}
 function saveResult(title,content){saveItem("نتيجة",title,content)}
-function savePlan(){let d=data();d.planName=val("planName")||"خطتي";d.steps=Array.from(document.querySelectorAll("#planSteps input[type=checkbox]")).map(e=>({text:e.dataset.text,done:e.checked}));putData(d);saveItem("خطة",d.planName,d.steps.map(s=>(s.done?"✓ ":"○ ")+s.text).join("\n"));renderPlan();refreshDashboard()}
-function renderPlan(){let d=data();document.getElementById("planName").value=d.planName||document.getElementById("planName").value;let el=document.getElementById("planSteps");el.innerHTML=(d.steps||[]).map((s,i)=>`<label class="check-row"><input type="checkbox" ${s.done?"checked":""} data-text="${escapeHTML(s.text)}" onchange="toggleStep(${i},this.checked)"><span>${escapeHTML(s.text)}</span><button type="button" onclick="deleteStep(${i})">حذف</button></label>`).join("");document.getElementById("planMessage").textContent=(d.steps||[]).filter(s=>s.done).length+" من "+(d.steps||[]).length+" خطوات مكتملة."}
-function addStep(){let s=val("newStep");if(!s){alert("اكتب الخطوة أولًا.");return}let d=data();d.planName=val("planName")||"خطتي";d.steps=d.steps||[];d.steps.push({text:s,done:false});putData(d);document.getElementById("newStep").value="";renderPlan();refreshDashboard()}
-function toggleStep(i,v){let d=data();d.steps[i].done=v;putData(d);renderPlan();refreshDashboard()}
-function deleteStep(i){let d=data();d.steps.splice(i,1);putData(d);renderPlan();refreshDashboard()}
-function loadDefaultSteps(){let d=data();d.planName=val("planName")||"مشروعي الجديد";d.steps=[{text:"تحديد المشكلة التي يحلها المشروع",done:false},{text:"تحديد العملاء المحتملين",done:false},{text:"دراسة المنافسين والأسعار",done:false},{text:"حساب التكاليف والميزانية",done:false},{text:"اختبار الفكرة على نطاق صغير",done:false},{text:"مراجعة النتائج وتحسين المشروع",done:false}];putData(d);renderPlan()}
-function makePlanFromIdea(n){let d=data();d.planName=n;d.steps=[{text:"بحث العملاء المحتملين لفكرة: "+n,done:false},{text:"دراسة المنافسين",done:false},{text:"حساب تكاليف البداية",done:false},{text:"تجربة الفكرة بشكل صغير",done:false},{text:"مراجعة النتائج",done:false}];putData(d);showPage("plan");renderPlan()}
-function renderSaved(){let d=data(),el=document.getElementById("savedOutput");if(!d.saved.length){el.innerHTML='<div class="notice">لا توجد عناصر محفوظة بعد. احفظ فكرة أو خطة أو نتيجة حسابية لتظهر هنا.</div>';return}el.innerHTML=d.saved.map((x,i)=>`<article class="idea"><span class="tag">${escapeHTML(x.type)}</span><h3>${escapeHTML(x.title)}</h3><p>${escapeHTML(x.content).replace(/\n/g,"<br>")}</p><p class="small">تاريخ الحفظ: ${escapeHTML(x.date||"")}</p><button onclick="deleteSaved(${i})">حذف العنصر</button></article>`).join("")}
-function deleteSaved(i){let d=data();d.saved.splice(i,1);putData(d);renderSaved();refreshDashboard()}
-function exportSaved(){let d=data(),textOut=JSON.stringify(d,null,2);let blob=new Blob([textOut],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="MASHRO3-backup.json";a.click();URL.revokeObjectURL(url)}
+
+function savePlan(){
+  const d=data();
+  d.planName=val("planName")||"خطتي";
+  d.steps=Array.from(document.querySelectorAll("#planSteps input[type=checkbox]")).map(e=>({text:e.dataset.text,done:e.checked}));
+  if(putData(d)){
+    saveItem("خطة",d.planName,d.steps.map(s=>(s.done?"✓ ":"○ ")+s.text).join("\n"));
+    renderPlan();refreshDashboard();
+  }
+}
+function renderPlan(){
+  const d=data();
+  const name=document.getElementById("planName");
+  if(document.activeElement!==name)name.value=d.planName||"";
+  const el=document.getElementById("planSteps");
+  el.innerHTML=(d.steps||[]).map((s,i)=>`<label class="check-row">
+    <input type="checkbox" ${s.done?"checked":""} data-text="${escapeHTML(s.text)}" onchange="toggleStep(${i},this.checked)">
+    <span>${escapeHTML(s.text)}</span><button type="button" onclick="deleteStep(${i})">حذف</button>
+  </label>`).join("");
+  document.getElementById("planMessage").textContent=(d.steps||[]).filter(s=>s.done).length+" من "+(d.steps||[]).length+" خطوات مكتملة.";
+}
+function addStep(){
+  const s=val("newStep");
+  if(!s){alert("اكتب الخطوة أولًا.");return}
+  const d=data();
+  d.planName=val("planName")||"خطتي";
+  d.steps.push({text:s,done:false});
+  if(putData(d)){document.getElementById("newStep").value="";renderPlan();refreshDashboard()}
+}
+function toggleStep(i,v){
+  const d=data();
+  if(!d.steps[i])return;
+  d.steps[i].done=v;
+  putData(d);renderPlan();refreshDashboard();
+}
+function deleteStep(i){
+  const d=data();d.steps.splice(i,1);putData(d);renderPlan();refreshDashboard();
+}
+function loadDefaultSteps(){
+  const d=data();
+  d.planName=val("planName")||"مشروعي الجديد";
+  d.steps=[
+    {text:"تحديد المشكلة التي يحلها المشروع",done:false},
+    {text:"تحديد العملاء المحتملين",done:false},
+    {text:"دراسة المنافسين والأسعار",done:false},
+    {text:"حساب التكاليف والميزانية",done:false},
+    {text:"اختبار الفكرة على نطاق صغير",done:false},
+    {text:"مراجعة النتائج وتحسين المشروع",done:false}
+  ];
+  if(putData(d)){renderPlan();refreshDashboard()}
+}
+function makePlanFromIdea(n){
+  const d=data();
+  d.planName=n;
+  d.steps=[
+    {text:"بحث العملاء المحتملين لفكرة: "+n,done:false},
+    {text:"دراسة المنافسين",done:false},
+    {text:"حساب تكاليف البداية",done:false},
+    {text:"تجربة الفكرة بشكل صغير",done:false},
+    {text:"مراجعة النتائج",done:false}
+  ];
+  if(putData(d)){showPage("plan");renderPlan()}
+}
+function renderSaved(){
+  const d=data(),el=document.getElementById("savedOutput");
+  if(!d.saved.length){el.innerHTML='<div class="empty">لا توجد عناصر محفوظة بعد. احفظ فكرة أو نتيجة حسابية لتظهر هنا.</div>';return}
+  el.innerHTML=d.saved.map((x,i)=>`<article class="idea">
+    <span class="tag">${escapeHTML(x.type)}</span><h3>${escapeHTML(x.title)}</h3>
+    <p>${escapeHTML(x.content).replace(/\n/g,"<br>")}</p>
+    <p class="small">تاريخ الحفظ: ${escapeHTML(x.date||"")}</p>
+    <button onclick="deleteSaved(${i})">حذف العنصر</button>
+  </article>`).join("");
+}
+function deleteSaved(i){
+  const d=data();d.saved.splice(i,1);putData(d);renderSaved();refreshDashboard();
+}
+function exportSaved(){
+  const d=data();
+  const textOut=JSON.stringify(d,null,2);
+  const blob=new Blob([textOut],{type:"application/json;charset=utf-8"});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");
+  a.href=url;a.download="MASHRO3-backup.json";
+  document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+
 const quiz=[
 {q:"ما أول خطوة جيدة قبل بدء مشروع؟",a:["استئجار محل فورًا","فهم المشكلة والعملاء","شراء أكبر كمية من المنتجات"],c:1,why:"فهم المشكلة والعملاء يساعدك على معرفة ما إذا كانت الفكرة مطلوبة."},
 {q:"ماذا يعني الربح التقديري؟",a:["ربح مضمون","تقدير مبني على افتراضات","مبلغ تحصل عليه دائمًا"],c:1,why:"النتائج تقديرية وقد تختلف عن الواقع."},
@@ -281,14 +624,54 @@ const quiz=[
 {q:"هل اختيار رمز العملة في الموقع يحوّل سعر الصرف؟",a:["نعم دائمًا","لا، يغيّر الرمز المعروض فقط","يغيّر كل الأسعار تلقائيًا"],c:1,why:"العملة هنا للعرض فقط وليست خدمة تحويل عملات."},
 {q:"أي شيء ينبغي دراسته مع الربح؟",a:["الوقت والمخاطر والطلب","لون الشعار فقط","اسم المشروع فقط"],c:0,why:"القرار الأفضل يأخذ عوامل متعددة في الحسبان."}
 ];
-let quizIndex=0,quizScore=0,quizAnswered=false;
-function renderQuiz(){let box=document.getElementById("quizBox");if(quizIndex>=quiz.length){let d=data();d.quizRuns++;d.quizBest=Math.max(d.quizBest,quizScore);putData(d);box.innerHTML=`<h3>انتهى الاختبار!</h3><p>نتيجتك: <strong>${quizScore} من ${quiz.length}</strong></p><p>${quizScore>=4?"أحسنت! لديك فهم جيد للأساسيات.":"واصل التعلم، فالممارسة تساعدك على التحسن."}</p><button class="primary" onclick="restartQuiz()">أعد الاختبار</button>`;refreshDashboard();return}let q=quiz[quizIndex];box.innerHTML=`<p>السؤال ${quizIndex+1} من ${quiz.length}</p><h3>${q.q}</h3>${q.a.map((a,i)=>`<button style="display:block;width:100%;text-align:right;margin:8px 0" ${quizAnswered?"disabled":""} onclick="answerQuiz(${i})">${a}</button>`).join("")}<div id="quizFeedback"></div>`}
-function answerQuiz(i){if(quizAnswered)return;quizAnswered=true;let q=quiz[quizIndex],ok=i===q.c;if(ok)quizScore++;document.getElementById("quizFeedback").innerHTML=`<div class="result"><strong>${ok?"إجابة صحيحة!":"ليست الإجابة الصحيحة."}</strong><p>${q.why}</p><button class="primary" onclick="nextQuiz()">السؤال التالي</button></div>`;renderQuizButtonsDisabled()}
-function renderQuizButtonsDisabled(){document.querySelectorAll("#quizBox button").forEach(b=>{if(!b.classList.contains("primary"))b.disabled=true})}
-function nextQuiz(){quizIndex++;quizAnswered=false;renderQuiz()}
-function restartQuiz(){quizIndex=0;quizScore=0;quizAnswered=false;renderQuiz()}
-function refreshDashboard(){let d=data(),saved=d.saved.length,done=(d.steps||[]).filter(s=>s.done).length,total=(d.steps||[]).length;document.getElementById("dashboardStats").innerHTML=`<div class="stat"><strong>${saved}</strong><span>عناصر محفوظة</span></div><div class="stat"><strong>${done}/${total}</strong><span>خطوات مكتملة في الخطة</span></div><div class="stat"><strong>${d.quizBest||0}/${quiz.length}</strong><span>أفضل نتيجة اختبار</span></div>`;document.getElementById("achievementList").innerHTML=`<h3>إنجازاتك</h3><p>${saved>0?"✅ حفظت أول عنصر":"○ احفظ أول فكرة أو نتيجة"}</p><p>${done>0?"✅ بدأت تنفيذ خطتك":"○ أكمل أول خطوة في خطتك"}</p><p>${(d.quizRuns||0)>0?"✅ أكملت اختبارًا":"○ أكمل الاختبار التفاعلي"}</p><p>${done>0&&done===total?"🏆 أكملت كل خطوات خطتك":"○ واصل العمل على خطواتك"}</p>`}
-renderPlan();refreshDashboard();renderSaved();
+let quizIndex=0,quizScore=0,quizAnswered=false,quizFinished=false;
+function renderQuiz(){
+  const box=document.getElementById("quizBox");
+  if(quizFinished){
+    box.innerHTML=`<h3>انتهى الاختبار!</h3><p>نتيجتك: <strong>${quizScore} من ${quiz.length}</strong></p>
+      <p>${quizScore>=4?"أحسنت! لديك فهم جيد للأساسيات.":"واصل التعلم، فالممارسة تساعدك على التحسن."}</p>
+      <button class="primary" onclick="restartQuiz()">أعد الاختبار</button>`;
+    return;
+  }
+  const q=quiz[quizIndex];
+  box.innerHTML=`<p class="tag">السؤال ${quizIndex+1} من ${quiz.length}</p><h3>${q.q}</h3>
+    ${q.a.map((a,i)=>`<button style="display:block;width:100%;text-align:right;margin:9px 0" ${quizAnswered?"disabled":""} onclick="answerQuiz(${i})">${escapeHTML(a)}</button>`).join("")}
+    <div id="quizFeedback"></div>`;
+}
+function answerQuiz(i){
+  if(quizAnswered||quizFinished)return;
+  quizAnswered=true;
+  const q=quiz[quizIndex],ok=i===q.c;
+  if(ok)quizScore++;
+  document.getElementById("quizFeedback").innerHTML=`<div class="result"><strong>${ok?"إجابة صحيحة!":"ليست الإجابة الصحيحة."}</strong><p>${q.why}</p><button class="primary" onclick="nextQuiz()">${quizIndex===quiz.length-1?"عرض النتيجة":"السؤال التالي"}</button></div>`;
+  document.querySelectorAll("#quizBox > button").forEach(b=>b.disabled=true);
+}
+function nextQuiz(){
+  if(quizIndex<quiz.length-1){quizIndex++;quizAnswered=false;renderQuiz();return}
+  quizFinished=true;
+  const d=data();d.quizRuns=(d.quizRuns||0)+1;d.quizBest=Math.max(d.quizBest||0,quizScore);
+  putData(d);renderQuiz();refreshDashboard();
+}
+function restartQuiz(){quizIndex=0;quizScore=0;quizAnswered=false;quizFinished=false;renderQuiz()}
+
+function refreshDashboard(){
+  const d=data(),saved=d.saved.length;
+  const done=d.steps.filter(s=>s.done).length,total=d.steps.length;
+  document.getElementById("dashboardStats").innerHTML=`
+    <div class="stat-light"><strong>${saved}</strong><span>عناصر محفوظة</span></div>
+    <div class="stat-light"><strong>${done}/${total}</strong><span>خطوات مكتملة في الخطة</span></div>
+    <div class="stat-light"><strong>${d.quizBest||0}/${quiz.length}</strong><span>أفضل نتيجة اختبار</span></div>`;
+  document.getElementById("achievementList").innerHTML=`<h3>إنجازاتك</h3>
+    <p>${saved>0?"✅ حفظت أول عنصر":"○ احفظ أول فكرة أو نتيجة"}</p>
+    <p>${done>0?"✅ بدأت تنفيذ خطتك":"○ أكمل أول خطوة في خطتك"}</p>
+    <p>${(d.quizRuns||0)>0?"✅ أكملت اختبارًا":"○ أكمل الاختبار التفاعلي"}</p>
+    <p>${total>0&&done===total?"🏆 أكملت كل خطوات خطتك":"○ واصل العمل على خطواتك"}</p>`;
+}
+
+renderPlan();
+renderSaved();
+refreshDashboard();
+renderQuiz();
 </script>
 </body>
 </html>
